@@ -1,0 +1,25 @@
+<!-- src/components/ThemeToggle.astro -->
+<button
+  id="toggle-theme"
+  class="fixed bottom-4 right-4 bg-main px-4 py-2 rounded"
+>
+  Cambiar tema
+</button>
+
+<script is:inline>
+  const themes = ["theme1", "theme2", "theme3"];
+  let current = 0;
+
+  const saved = localStorage.getItem("theme");
+  if (saved && themes.includes(saved)) {
+    document.documentElement.setAttribute("data-theme", saved);
+    current = themes.indexOf(saved);
+  }
+
+  document.getElementById("toggle-theme")?.addEventListener("click", () => {
+    current = (current + 1) % themes.length;
+    const newTheme = themes[current];
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  });
+</script>

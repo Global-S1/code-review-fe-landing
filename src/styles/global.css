@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: var(--custom-color-primary)
+}
+
+@layer base{
+    html[data-theme="theme1"]{
+        --color-primary: #00F5A0;
+        --color-secundary: #00D9FF;
+        --color-dark: #111111;
+        --color-light: #FFFFFF;
+    }
+
+    html[data-theme="theme2"]{
+        --color-primary: #0066FF;
+        --color-secundary: #00FFC6;
+        --color-dark: #0A0A0A;
+        --color-light: #F8F8F8;
+    }
+
+    html[data-theme="theme3"]{
+        --color-primary: #19DBCA;
+        --color-secundary: #5557D9;
+        --color-dark: #0E032A;
+        --color-light: #FFFFFF;
+    }
+} 
