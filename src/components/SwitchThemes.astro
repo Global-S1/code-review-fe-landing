@@ -1,25 +1,64 @@
-<!-- src/components/ThemeToggle.astro -->
-<button
-  id="toggle-theme"
-  class="fixed bottom-4 right-4 bg-main px-4 py-2 rounded"
->
-  Cambiar tema
-</button>
+---
+import { ChevronDown } from "@lucide/astro";
+
+const themes = [
+  { id: "theme1", from: "#00F5A0", to: "#00D9FF" },
+  { id: "theme2", from: "#0066FF", to: "#00FFC6" },
+  { id: "theme3", from: "#19DBCA", to: "#5557D9" },
+];
+---
+
+<div class="relative inline-block" id="color-popover">
+  <input type="checkbox" id="popover-toggle" class="peer hidden" />
+  <label
+    for="popover-toggle"
+    class="cursor-pointer flex items-center justify-center gap-2 border border-white rounded-lg p-2"
+  >
+    <div
+      class="size-10 bg-gradient-to-br from-primary to-secondary rounded-full"
+    >
+    </div>
+    <ChevronDown class="text-white" size={18} />
+  </label>
+
+  <div
+    class="absolute top-[calc(100%+8px)] left-1 w-fit p-2 border border-white bg-dark rounded-lg shadow-lg opacity-0 scale-95 peer-checked:opacity-100 peer-checked:scale-100 transition-all duration-300 origin-top z-50"
+  >
+    <div class="flex flex-col items-center gap-2">
+      {
+        themes.map((theme) => (
+          <button
+            type="button"
+            class="size-8 rounded-full cursor-pointer"
+            style={`background-image: linear-gradient(to bottom right, ${theme.from}, ${theme.to})`}
+            data-theme={theme.id}
+            onclick="applyTheme(this.dataset.theme)"
+          />
+        ))
+      }
+    </div>
+  </div>
+</div>
 
 <script is:inline>
-  const themes = ["theme1", "theme2", "theme3"];
-  let current = 0;
+  const popover = document.getElementById("color-popover");
+  const themeToggle = popover.querySelector("#popover-toggle");
 
-  const saved = localStorage.getItem("theme");
-  if (saved && themes.includes(saved)) {
-    document.documentElement.setAttribute("data-theme", saved);
-    current = themes.indexOf(saved);
+  document.addEventListener("click", (e) => {
+    if (!popover.contains(e.target)) themeToggle.checked = false;
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") themeToggle.checked = false;
+  });
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.documentElement.setAttribute("data-theme", savedTheme);
   }
 
-  document.getElementById("toggle-theme")?.addEventListener("click", () => {
-    current = (current + 1) % themes.length;
-    const newTheme = themes[current];
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  });
+  window.applyTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  };
 </script>

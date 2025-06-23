@@ -3,4 +3,5 @@ export default {
     es: "Español",
     en: "Inglés",
   },
+  title: "CODARI Pro",
 };

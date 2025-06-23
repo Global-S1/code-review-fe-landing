@@ -2,17 +2,19 @@
 import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
 import SwitchThemes from "@components/SwitchThemes.astro";
 import "@styles/global.css";
+import SwitchLang from "@components/SwitchLang.astro";
 
 interface Props {
-  title: string;
+  title?: string;
   lang: TLanguage;
+  t: any;
 }
 
-const { lang, title } = Astro.props as Props;
+const { lang, title = "CODARI Pro", t } = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang={lang} data-theme="theme3">
+<html lang={lang} data-theme="theme1" class="bg-dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -22,6 +24,7 @@ const { lang, title } = Astro.props as Props;
   </head>
   <body>
     <SwitchThemes />
+    <SwitchLang languages={t.languageOptions} />
     <slot />
   </body>
 </html>
