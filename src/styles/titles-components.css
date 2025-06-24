@@ -1,0 +1,24 @@
+@layer {
+
+    /* Headers */
+    .heading-h2{
+        @apply font-grandis text-3xl sm:text-4xl md:text-6xl;
+    }
+
+    .heading-h3{
+        @apply font-grandis text-2xl sm:text-3xl md:text-5xl;
+    }
+
+    /* Text */
+    .text-custom-xl{
+        @apply text-xl md:text-3xl;
+    }
+
+    .text-custom-lg{
+        @apply text-lg md:text-2xl;
+    }
+
+    .text-custom-md{
+        @apply text-base md:text-xl;
+    }
+}

@@ -9,13 +9,13 @@ const t = translator(lang);
 const content = t.pages.home.target;
 ---
 
-<section>
+<section class="container mx-auto px-6">
   <H2>
     {content.title}
   </H2>
 
   <div
-    class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-y-12 justify-items-center"
+    class="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-y-12 justify-items-center"
   >
     {
       content.card.map((e) => (

@@ -10,18 +10,17 @@ const content = t.pages.home.aboutIA;
 const carruselItems = content.cards;
 ---
 
-<div class="flex items-center justify-center gap-12">
+<div class="flex flex-col md:flex-row items-center justify-center gap-12">
   <button
-    class="z-10 pointer-events-auto p-2 rounded-full border border-white text-white bg-white/10 hover:bg-black/70 transition mr-4 cursor-pointer"
+    class="z-10 hidden md:block pointer-events-auto p-2 rounded-full border border-white text-white bg-white/10 hover:bg-black/70 transition mr-4 cursor-pointer"
     onclick="prevSlide()"
   >
     <ChevronLeft />
   </button>
-  <div class="relative max-w-xl overflow-hidden">
-    <!-- Slides container -->
+  <div class="relative md:max-w-xl overflow-hidden">
     <div
       id="carousel-track"
-      class="flex transition-transform duration-500 ease-in-out"
+      class="flex transition-transform duration-500 ease-in-out w-[300px] md:w-auto mx-auto"
       style="transform: translateX(0%)"
     >
       {
@@ -38,11 +37,27 @@ const carruselItems = content.cards;
     </div>
   </div>
   <button
-    class="z-10 pointer-events-auto p-2 rounded-full border border-white text-white bg-white/10 hover:bg-black/70 transition cursor-pointer"
+    class="z-10 hidden md:block pointer-events-auto p-2 rounded-full border border-white text-white bg-white/10 hover:bg-black/70 transition cursor-pointer"
     onclick="nextSlide()"
   >
     <ChevronRight />
   </button>
+
+  <!-- buttons movile -->
+  <div class="md:hidden flex justify-between">
+    <button
+      class="z-10 pointer-events-auto p-2 rounded-full border border-white text-white bg-white/10 hover:bg-black/70 transition mr-4 cursor-pointer"
+      onclick="prevSlide()"
+    >
+      <ChevronLeft />
+    </button>
+    <button
+      class="z-10 pointer-events-auto p-2 rounded-full border border-white text-white bg-white/10 hover:bg-black/70 transition cursor-pointer"
+      onclick="nextSlide()"
+    >
+      <ChevronRight />
+    </button>
+  </div>
 </div>
 
 <script is:inline>

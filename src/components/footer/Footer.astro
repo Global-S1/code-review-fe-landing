@@ -9,10 +9,14 @@ const t = translator(lang);
 const content = t.footer;
 ---
 
-<footer class="container mx-auto flex items-center justify-between px-12 py-12">
-  <Logo />
+<footer
+  class="container mx-auto md:flex items-center justify-between md:px-12 py-12"
+>
+  <Logo class="justify-center md:justify-start" />
 
-  <ul class="flex gap-12">
+  <ul
+    class="grid grid-cols-3 divide-x divide-white text-center w-full md:w-auto h-full content-center justify-items-center"
+  >
     {
       content.options.map((e) => (
         <FooterListItem id={e.id}>{e.label}</FooterListItem>
