@@ -60,6 +60,24 @@ export default {
           "Documentación <span>siempre al día</span/>",
         ],
       },
+      contactUs: {
+        title: "Da el primer paso. <br/> Hablemos hoy.",
+        form: {
+          placeholder: "Escribe aquí...",
+          name: "Nombre y Apellido",
+          email: "Correo electrónico",
+          cellphone: "Teléfono",
+          termsConditions: "Acepto los términos y condiciones",
+          news: "Deseo recibir noticias y promociones",
+          button: "Enviar ahora",
+          validations: {
+            name: "El nomrbe es obligatorio",
+            email: "Ingresa un correo válido",
+            cellphone: "Ingresa un número de teléfono válido",
+            termsConditions: "Debes aceptar los términos y condiciones",
+          },
+        },
+      },
       target: {
         title: "¿Para quién es esto?",
         card: [

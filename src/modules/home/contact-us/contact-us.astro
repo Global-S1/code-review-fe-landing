@@ -1,0 +1,15 @@
+---
+import H2 from "@components/titles/H2.astro";
+import Form from "./form.astro";
+import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
+import { translator } from "@i18n/config/translator";
+
+const lang = Astro.params.lang as TLanguage;
+const t = translator(lang);
+const content = t.pages.home.contactUs;
+---
+
+<section class="my-24">
+  <H2 class="mb-12" set:html={content.title} />
+  <Form />
+</section>

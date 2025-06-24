@@ -61,6 +61,24 @@ export default {
           "<span>Always up-to-date</span> documentation",
         ],
       },
+      contactUs: {
+        title: "Take the first step. <br/> Let's talk today.",
+        form: {
+          placeholder: "Write here...",
+          name: "Full Name",
+          email: "Email",
+          cellphone: "Phone number",
+          termsConditions: "I accept the terms and conditions",
+          news: "I want to receive news and promotions",
+          button: "Send now",
+          validations: {
+            name: "Name is required",
+            email: "Enter a valid email",
+            cellphone: "Enter a valid phone number",
+            termsConditions: "You must accept the terms and conditions",
+          },
+        },
+      },
       target: {
         title: "Who is this for?",
         card: [

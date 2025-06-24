@@ -1,0 +1,13 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: customClass = "" } = Astro.props as Props;
+---
+
+<h2
+  class={`bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-center text-transparent font-grandis text-6xl w-fit mx-auto py-2 ${customClass}`}
+>
+  <slot />
+</h2>
