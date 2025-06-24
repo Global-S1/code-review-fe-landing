@@ -1,0 +1,135 @@
+export default {
+  languageOptions: {
+    es: "Espanhol",
+    en: "Inglês",
+    fr: "Francês",
+    pt: "Português",
+  },
+  title: "CODARI Pro",
+  logo: "CODARI Pro",
+  pages: {
+    home: {
+      hero: {
+        slogan: {
+          first: "Automatize a Revisão de ",
+          second: "Código com IA",
+        },
+        description:
+          "Melhore a qualidade, segurança e produtividade dos seus repositórios GitHub, sem esforço manual.",
+        chatbot: {
+          input: {
+            placeholder: "Escreva para nós, como podemos te ajudar?",
+            button: "Vamos conversar agora",
+          },
+        },
+      },
+      aboutIA: {
+        title: "O que a IA faz?",
+        cards: [
+          {
+            image: "/src/assets/icons/code-review.svg",
+            label: "Revisão automática de código",
+            description: "Melhore seu código conforme padrões como o SonarQube",
+          },
+          {
+            image: "/src/assets/icons/intelligent-comments.svg",
+            label: "Comentários inteligentes em PRs",
+            description: "Edição colaborativa com IA",
+          },
+          {
+            image: "/src/assets/icons/contextual-chat.svg",
+            label: "Chat contextual",
+            description: "IA que entende seu código e responde perguntas",
+          },
+          {
+            image: "/src/assets/icons/documentation.svg",
+            label: "Documentação técnica automática",
+            description: "Tudo sempre atualizado, sem escrever manualmente",
+          },
+          {
+            image: "/src/assets/icons/github.svg",
+            label: "Integração segura com o GitHub",
+            description: "OAuth e repositórios privados protegidos",
+          },
+        ],
+      },
+      benefits: {
+        title: "BENEFÍCIOS <br/> REAIS",
+        card: [
+          "Até <span>90%</span> menos bugs críticos em produção",
+          "<span>40%</span> menos tempo em revisões",
+          "<span>85%</span> de retenção mensal de usuários",
+          "Documentação <span>sempre atualizada</span>",
+        ],
+      },
+      contactUs: {
+        title: "Dê o primeiro passo. <br/> Vamos conversar hoje.",
+        form: {
+          placeholder: "Escreva aqui...",
+          name: "Nome e Sobrenome",
+          email: "E-mail",
+          cellphone: "Telefone",
+          termsConditions: "Aceito os termos e condições",
+          news: "Desejo receber notícias e promoções",
+          button: "Enviar agora",
+          validations: {
+            name: "O nome é obrigatório",
+            email: "Digite um e-mail válido",
+            cellphone: "Digite um número de telefone válido",
+            termsConditions: "Você deve aceitar os termos e condições",
+          },
+        },
+      },
+      target: {
+        title: "Para quem é isso?",
+        card: [
+          {
+            img: "/src/assets/icons/dev-team.svg",
+            label: "Desenvolvedores e equipes de software",
+            isGradient: false,
+          },
+          {
+            img: "/src/assets/icons/startups.svg",
+            label: "Startups que buscam velocidade sem sacrificar qualidade",
+            isGradient: true,
+          },
+          {
+            img: "/src/assets/icons/consultant.svg",
+            label: "Consultorias que precisam manter padrões",
+            isGradient: true,
+          },
+          {
+            img: "/src/assets/icons/education.svg",
+            label: "Plataformas educacionais que ensinam código limpo",
+            isGradient: false,
+          },
+        ],
+      },
+      letsGetStarted: {
+        title: {
+          first: "PRONTO PARA ACELERAR",
+          second: "SEU DESENVOLVIMENTO COM IA?",
+        },
+        description:
+          "Comece grátis hoje ou solicite uma demonstração personalizada",
+        button: "Começar agora!",
+      },
+    },
+  },
+  footer: {
+    options: [
+      {
+        id: "aboutIA",
+        label: "O que faz?",
+      },
+      {
+        id: "benefits",
+        label: "Benefícios",
+      },
+      {
+        id: "contactUs",
+        label: "Fale conosco",
+      },
+    ],
+  },
+};

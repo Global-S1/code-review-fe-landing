@@ -2,6 +2,8 @@ export default {
   languageOptions: {
     es: "Spanish",
     en: "English",
+    fr: "French",
+    pt: "Portuguese",
   },
   title: "CODARI Pro",
   logo: "CODARI Pro",
