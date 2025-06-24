@@ -7,9 +7,6 @@ const translations = {
   en,
 } as const;
 
-export const translator = (lang?: TLanguage) => {
-  if (lang) {
-    return translations[lang];
-  }
-  return null;
+export const translator = (lang: TLanguage) => {
+  return translations[lang];
 };

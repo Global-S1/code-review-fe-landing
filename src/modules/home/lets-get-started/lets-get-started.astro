@@ -1,5 +1,11 @@
 ---
+import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
 import Columns from "./columns.astro";
+import { translator } from "@i18n/config/translator";
+
+const lang = Astro.params.lang as TLanguage;
+const t = translator(lang);
+const content = t.pages.home.letsGetStarted;
 ---
 
 <section
@@ -7,19 +13,21 @@ import Columns from "./columns.astro";
 >
   <div class="flex flex-col items-center z-10">
     <h3 class="text-center font-grandis text-6xl">
-      ¿LISTO PARA ACELERAR <div
-        class="bg-gradient-to-r from-primary to-secondary bg-clip-text"
+      {content.title.first}
+      <span
+        class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent block"
       >
-        <span class="text-transparent">TU DESARROLLO CON IA?</span>
-      </div>
+        {content.title.second}
+      </span>
     </h3>
+
     <p class="text-center text-3xl mt-4 font-light">
-      Empieza gratis hoy o solicita una demo personalizada
+      {content.description}
     </p>
     <button
-      class="bg-primary rounded-[36px] px-16 py-2 font-bold mt-16 text-2xl"
+      class="bg-primary rounded-[36px] px-16 py-2 font-bold mt-16 text-2xl cursor-pointer hover:shadow-xl hover:shadow-primary duration-[1s]"
     >
-      ¡Empezar Ya!
+      {content.button}
     </button>
   </div>
   <Columns />

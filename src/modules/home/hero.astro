@@ -3,12 +3,12 @@ import Logo from "@components/Logo.astro";
 import SwitchLang from "@components/SwitchLang.astro";
 import SwitchThemes from "@components/SwitchThemes.astro";
 import ChatBot from "./chat-bot/chat-bot.astro";
+import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
+import { translator } from "@i18n/config/translator";
 
-interface Props {
-  t: any;
-}
-
-const { t } = Astro.props as Props;
+const lang = Astro.params.lang as TLanguage;
+const t = translator(lang);
+const content = t.pages.home.hero;
 ---
 
 <div
@@ -24,16 +24,14 @@ const { t } = Astro.props as Props;
   <div class="grow flex items-center justify-center">
     <div class="max-w-[70%]">
       <h1 class="text-white text-center font-grandis text-[65px]">
-        Automatiza la Revisión de <div
-          class="bg-gradient-to-r from-primary to-secondary bg-clip-text"
-        >
-          <span class="text-transparent">Código con IA</span>
+        {content.slogan.first}
+        <div class="bg-gradient-to-r from-primary to-secondary bg-clip-text">
+          <span class="text-transparent">{content.slogan.second}</span>
         </div>
       </h1>
 
       <p class="text-center text-[32px] mt-4 font-light">
-        Mejora la calidad, seguridad y productividad en tus repositorios GitHub,
-        sin esfuerzo manual.
+        {content.description}
       </p>
     </div>
   </div>

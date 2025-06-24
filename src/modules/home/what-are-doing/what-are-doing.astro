@@ -1,0 +1,20 @@
+---
+import { translator } from "@i18n/config/translator";
+import Carrusel from "./carrusel.astro";
+import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
+
+const lang = Astro.params.lang as TLanguage;
+const t = translator(lang);
+const content = t.pages.home.aboutIA;
+---
+
+<section class="container mx-auto my-20" id="aboutIA">
+  <div
+    class="bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text mx-auto w-fit py-2 mb-12"
+  >
+    <h2 class="text-center text-transparent font-grandis text-6xl">
+      {content.title}
+    </h2>
+  </div>
+  <Carrusel />
+</section>

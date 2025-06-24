@@ -1,5 +1,11 @@
 ---
+import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
 import TargetCard from "./target-card.astro";
+import { translator } from "@i18n/config/translator";
+
+const lang = Astro.params.lang as TLanguage;
+const t = translator(lang);
+const content = t.pages.home.target;
 ---
 
 <section>
@@ -7,28 +13,17 @@ import TargetCard from "./target-card.astro";
     class="w-fit mx-auto bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text mb-4"
   >
     <h2 class="font-grandis text-6xl text-center text-transparent">
-      ¿Para quién es esto?
+      {content.title}
     </h2>
   </div>
 
-  <div class="mt-12 grid grid-cols-2 gap-y-12 justify-items-center">
-    <TargetCard
-      img="/src/assets/icons/dev-team.svg"
-      label="Desarrolladores y equipos de software"
-    />
-    <TargetCard
-      img="/src/assets/icons/startups.svg"
-      label="Startups que buscan velocidad sin sacrificar calidad"
-      isGradient
-    />
-    <TargetCard
-      img="/src/assets/icons/consultant.svg"
-      label="Consultoras que necesitan mantener estándares"
-      isGradient
-    />
-    <TargetCard
-      img="/src/assets/icons/education.svg"
-      label="Plataformas educativas que enseñan código limpio"
-    />
+  <div
+    class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-y-12 justify-items-center"
+  >
+    {
+      content.card.map((e) => (
+        <TargetCard img={e.img} label={e.label} isGradient={e.isGradient} />
+      ))
+    }
   </div>
 </section>

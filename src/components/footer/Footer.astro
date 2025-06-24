@@ -1,14 +1,22 @@
 ---
 import Logo from "@components/Logo.astro";
 import FooterListItem from "./footer-list-item.astro";
+import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
+import { translator } from "@i18n/config/translator";
+
+const lang = Astro.params.lang as TLanguage;
+const t = translator(lang);
+const content = t.footer;
 ---
 
 <footer class="container mx-auto flex items-center justify-between px-12 py-12">
   <Logo />
 
   <ul class="flex gap-12">
-    <FooterListItem href="">¿Que hace?</FooterListItem>
-    <FooterListItem href="">Beneficios</FooterListItem>
-    <FooterListItem href="">Contáctanos</FooterListItem>
+    {
+      content.options.map((e) => (
+        <FooterListItem id={e.id}>{e.label}</FooterListItem>
+      ))
+    }
   </ul>
 </footer>

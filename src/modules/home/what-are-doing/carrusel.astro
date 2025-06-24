@@ -1,34 +1,13 @@
 ---
+import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
 import CarruselCard from "./carrusel-card.astro";
 import { ChevronLeft, ChevronRight } from "@lucide/astro";
+import { translator } from "@i18n/config/translator";
 
-const carruselItems = [
-  {
-    image: "/src/assets/icons/code-review.svg",
-    label: "Revisión automática de código",
-    description: "Mejora tu código según estándares com SonarQube",
-  },
-  {
-    image: "/src/assets/icons/intelligent-comments.svg",
-    label: "Comentarios inteligentes en PRs",
-    description: "Edición colaborativa con IA",
-  },
-  {
-    image: "/src/assets/icons/contextual-chat.svg",
-    label: "Chat contextual",
-    description: "IA que entiende tu código y responde preguntas",
-  },
-  {
-    image: "/src/assets/icons/documentation.svg",
-    label: "Documentación técnica automática",
-    description: "Todo actualizado, sin escribir a mano",
-  },
-  {
-    image: "/src/assets/icons/github.svg",
-    label: "Integración segura con GitHub",
-    description: "OAuth y repos privados protegidos",
-  },
-];
+const lang = Astro.params.lang as TLanguage;
+const t = translator(lang);
+const content = t.pages.home.aboutIA;
+const carruselItems = content.cards;
 ---
 
 <div class="flex items-center justify-center gap-12">

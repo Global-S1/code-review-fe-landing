@@ -1,6 +1,14 @@
+---
+import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
+import { translator } from "@i18n/config/translator";
+
+const lang = Astro.params.lang as TLanguage;
+const t = translator(lang);
+---
+
 <a href="/" class="flex items-center gap-1">
   <img src="/logo.svg" alt="logo" class="size-16" />
   <div class="bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text">
-    <span class="text-transparent font-bold text-xl">CODARI Pro</span>
+    <span class="text-transparent font-bold text-xl">{t.logo}</span>
   </div>
 </a>

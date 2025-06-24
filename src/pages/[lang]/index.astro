@@ -7,7 +7,7 @@ import Benefits from "src/modules/home/benefits/benefits.astro";
 import Hero from "src/modules/home/hero.astro";
 import LetsGetStarted from "src/modules/home/lets-get-started/lets-get-started.astro";
 import Target from "src/modules/home/target/target.astro";
-import WhatAreDoing from "src/modules/what-are-doing/what-are-doing.astro";
+import WhatAreDoing from "src/modules/home/what-are-doing/what-are-doing.astro";
 
 export async function getStaticPaths() {
   return languajeList.map((lang) => ({
@@ -20,7 +20,7 @@ const t = translator(lang);
 ---
 
 <Layout lang={lang} title={t?.title}>
-  <Hero t={t} />
+  <Hero />
   <WhatAreDoing />
   <Benefits />
   <Target />
