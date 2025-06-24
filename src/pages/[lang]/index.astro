@@ -3,6 +3,11 @@ import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
 import { languajeList } from "@i18n/config/languaje";
 import { translator } from "@i18n/config/translator";
 import Layout from "@layouts/Layout.astro";
+import Benefits from "src/modules/home/benefits/benefits.astro";
+import Hero from "src/modules/home/hero.astro";
+import LetsGetStarted from "src/modules/home/lets-get-started/lets-get-started.astro";
+import Target from "src/modules/home/target/target.astro";
+import WhatAreDoing from "src/modules/what-are-doing/what-are-doing.astro";
 
 export async function getStaticPaths() {
   return languajeList.map((lang) => ({
@@ -14,7 +19,10 @@ const lang = Astro.params.lang as TLanguage;
 const t = translator(lang);
 ---
 
-<Layout lang={lang} title={t?.title} t={t}>
-  <h1 class="text-primary">{t?.languageOptions.en}</h1>
-  <p class="text-red-500">{t?.languageOptions.es}</p>
+<Layout lang={lang} title={t?.title}>
+  <Hero t={t} />
+  <WhatAreDoing />
+  <Benefits />
+  <Target />
+  <LetsGetStarted />
 </Layout>

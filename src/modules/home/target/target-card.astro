@@ -1,0 +1,19 @@
+---
+interface Props {
+  img: string;
+  label: string;
+  isGradient?: boolean;
+}
+const { img, label, isGradient = false } = Astro.props as Props;
+---
+
+<figure
+  class="relative px-12 pt-6 pb-12 max-w-[540px] border rounded-xl overflow-hidden"
+>
+  <img src={img} alt={label} class="mx-auto" />
+  <figcaption class="text-3xl mt-8">{label}</figcaption>
+  <div
+    class={`absolute -z-10 left-0 top-0 w-full h-full bg-radial ${isGradient ? "from-dark to-primary opacity-[22%]" : "from-white to-dark opacity-5"}`}
+  >
+  </div>
+</figure>

@@ -1,10 +1,39 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: "Grandis";
+    src: url("/fonts/grandis-extended-bold.otf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Futura medium";
+    src: url("/fonts/futura-medium.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Futura Bold";
+    src: url("/fonts/Futura-Bold.otf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+:root{
+    --font-grandis: "Grandis";
+    --font-futura-medium: "Futura medium";
+    --font-futura-bold: "Futura Bold";
+}
+
 @theme {
     --color-primary: var(--color-primary);
     --color-secondary: var(--color-secondary);
     --color-dark: var(--color-dark);
     --color-light: var(--color-light);
+
+    --font-grandis: Grandis, sans-serif;
 }
 
 @layer base{
@@ -28,4 +57,4 @@
         --color-dark: #0E032A;
         --color-light: #FFFFFF;
     }
-} 
+}

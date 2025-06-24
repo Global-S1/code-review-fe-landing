@@ -1,0 +1,92 @@
+---
+import CarruselCard from "./carrusel-card.astro";
+import { ChevronLeft, ChevronRight } from "@lucide/astro";
+
+const carruselItems = [
+  {
+    image: "/src/assets/icons/code-review.svg",
+    label: "Revisión automática de código",
+    description: "Mejora tu código según estándares com SonarQube",
+  },
+  {
+    image: "/src/assets/icons/intelligent-comments.svg",
+    label: "Comentarios inteligentes en PRs",
+    description: "Edición colaborativa con IA",
+  },
+  {
+    image: "/src/assets/icons/contextual-chat.svg",
+    label: "Chat contextual",
+    description: "IA que entiende tu código y responde preguntas",
+  },
+  {
+    image: "/src/assets/icons/documentation.svg",
+    label: "Documentación técnica automática",
+    description: "Todo actualizado, sin escribir a mano",
+  },
+  {
+    image: "/src/assets/icons/github.svg",
+    label: "Integración segura con GitHub",
+    description: "OAuth y repos privados protegidos",
+  },
+];
+---
+
+<div class="flex items-center justify-center gap-12">
+  <button
+    class="z-10 pointer-events-auto p-2 rounded-full border border-white text-white bg-white/10 hover:bg-black/70 transition mr-4 cursor-pointer"
+    onclick="prevSlide()"
+  >
+    <ChevronLeft />
+  </button>
+  <div class="relative max-w-xl overflow-hidden">
+    <!-- Slides container -->
+    <div
+      id="carousel-track"
+      class="flex transition-transform duration-500 ease-in-out"
+      style="transform: translateX(0%)"
+    >
+      {
+        carruselItems.map((e) => (
+          <div class="w-full shrink-0">
+            <CarruselCard
+              image={e.image}
+              label={e.label}
+              description={e.description}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <button
+    class="z-10 pointer-events-auto p-2 rounded-full border border-white text-white bg-white/10 hover:bg-black/70 transition cursor-pointer"
+    onclick="nextSlide()"
+  >
+    <ChevronRight />
+  </button>
+</div>
+
+<script is:inline>
+  const track = document.getElementById("carousel-track");
+  const totalSlides = track.children.length;
+  let current = 0;
+
+  function updateCarousel() {
+    const percent = -(100 * current);
+    track.style.transform = `translateX(${percent}%)`;
+  }
+
+  function nextSlide() {
+    if (current < totalSlides - 1) {
+      current++;
+      updateCarousel();
+    }
+  }
+
+  function prevSlide() {
+    if (current > 0) {
+      current--;
+      updateCarousel();
+    }
+  }
+</script>

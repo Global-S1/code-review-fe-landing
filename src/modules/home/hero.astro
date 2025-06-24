@@ -1,0 +1,41 @@
+---
+import Logo from "@components/Logo.astro";
+import SwitchLang from "@components/SwitchLang.astro";
+import SwitchThemes from "@components/SwitchThemes.astro";
+import ChatBot from "./chat-bot/chat-bot.astro";
+
+interface Props {
+  t: any;
+}
+
+const { t } = Astro.props as Props;
+---
+
+<div
+  class="relative container mx-auto py-4 h-[80vh] max-h-[900px] rounded-b-3xl flex flex-col"
+>
+  <nav class="flex items-center justify-between">
+    <Logo />
+    <div class="flex items-center gap-4">
+      <SwitchLang languages={t.languageOptions} />
+      <SwitchThemes />
+    </div>
+  </nav>
+  <div class="grow flex items-center justify-center">
+    <div class="max-w-[70%]">
+      <h1 class="text-white text-center font-grandis text-[65px]">
+        Automatiza la Revisión de <div
+          class="bg-gradient-to-r from-primary to-secondary bg-clip-text"
+        >
+          <span class="text-transparent">Código con IA</span>
+        </div>
+      </h1>
+
+      <p class="text-center text-[32px] mt-4 font-light">
+        Mejora la calidad, seguridad y productividad en tus repositorios GitHub,
+        sin esfuerzo manual.
+      </p>
+    </div>
+  </div>
+  <ChatBot />
+</div>

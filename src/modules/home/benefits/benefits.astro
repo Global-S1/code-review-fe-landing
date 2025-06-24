@@ -1,0 +1,31 @@
+---
+import BenefitItem from "./benefit-item.astro";
+import BenefitsTextResalted from "./benefits-text-resalted.astro";
+---
+
+<section
+  class="flex items-center justify-evenly gap-12 container mx-auto px-12 my-32 min-h-[50vh]"
+>
+  <h3 class="font-grandis text-5xl">BENEFICIOS <br />REALES</h3>
+  <div
+    class="relative px-8 py-16 flex flex-col gap-4 rounded-lg overflow-hidden"
+  >
+    <div
+      class="absolute w-full h-full left-0 top-0 bg-radial from-white to-dark opacity-15"
+    >
+    </div>
+    <BenefitItem>
+      Hasta <BenefitsTextResalted>90%</BenefitsTextResalted> menos bugs críticos
+      en producción
+    </BenefitItem>
+    <BenefitItem>
+      <BenefitsTextResalted>40%</BenefitsTextResalted> menos tiempos en revisiones
+    </BenefitItem>
+    <BenefitItem>
+      <BenefitsTextResalted>85%</BenefitsTextResalted> retención mensual de usuarios
+    </BenefitItem>
+    <BenefitItem>
+      Documentación <BenefitsTextResalted>siempre al día</BenefitsTextResalted>
+    </BenefitItem>
+  </div>
+</section>

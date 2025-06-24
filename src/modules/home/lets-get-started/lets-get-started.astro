@@ -1,0 +1,30 @@
+---
+import Columns from "./columns.astro";
+---
+
+<section
+  class="relative w-full min-h-[70vh] flex items-center justify-center mt-20"
+>
+  <div class="flex flex-col items-center z-10">
+    <h3 class="text-center font-grandis text-6xl">
+      ¿LISTO PARA ACELERAR <div
+        class="bg-gradient-to-r from-primary to-secondary bg-clip-text"
+      >
+        <span class="text-transparent">TU DESARROLLO CON IA?</span>
+      </div>
+    </h3>
+    <p class="text-center text-3xl mt-4 font-light">
+      Empieza gratis hoy o solicita una demo personalizada
+    </p>
+    <button
+      class="bg-primary rounded-[36px] px-16 py-2 font-bold mt-16 text-2xl"
+    >
+      ¡Empezar Ya!
+    </button>
+  </div>
+  <Columns />
+  <div
+    class="absolute left-0 bottom-0 w-full h-4 bg-primary shadow-lg shadow-primary blur-sm"
+  >
+  </div>
+</section>

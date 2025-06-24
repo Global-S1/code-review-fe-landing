@@ -1,0 +1,29 @@
+---
+import ColumnItem from "./column-item.astro";
+
+const total = 6;
+const baseHeight = 60;
+
+const leftHeights = Array.from(
+  { length: total },
+  (_, i) => (baseHeight * (total - i)) / total
+);
+
+const rightHeights = Array.from(
+  { length: total },
+  (_, i) => (baseHeight * (i + 1)) / total
+);
+---
+
+<div class="absolute left-0 top-0 w-full h-full flex items-end blur-[1px]">
+  {
+    leftHeights.map((e) => (
+      <ColumnItem height={`${e}%`} columnsPerSide={total} />
+    ))
+  }
+  {
+    rightHeights.map((e) => (
+      <ColumnItem height={`${e}%`} columnsPerSide={total} />
+    ))
+  }
+</div>
