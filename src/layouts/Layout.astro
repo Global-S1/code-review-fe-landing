@@ -18,7 +18,10 @@ const { lang, title = "CODARI Pro" } = Astro.props as Props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Put your description here." />
     <title>{title}</title>
+    <!-- TODO: Investigar como informar al crawler sobre el soporte multi idioma -->
+    <link rel="alternate" lang="es" href="https://tusitio.com/es" />
   </head>
   <body>
     <slot />

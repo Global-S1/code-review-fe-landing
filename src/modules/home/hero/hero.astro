@@ -4,14 +4,13 @@ import SwitchLang from "@components/SwitchLang.astro";
 import SwitchThemes from "@components/SwitchThemes.astro";
 import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
 import { translator } from "@i18n/config/translator";
-import Waves from "./waves.astro";
 
 const lang = Astro.params.lang as TLanguage;
 const t = translator(lang);
 const content = t.pages.home.hero;
 ---
 
-<div
+<header
   class="relative container mx-auto py-4 h-[80vh] max-h-[900px] rounded-b-3xl flex flex-col"
 >
   <!-- <Waves /> -->
@@ -37,4 +36,4 @@ const content = t.pages.home.hero;
       </p>
     </div>
   </div>
-</div>
+</header>

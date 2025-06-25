@@ -9,8 +9,15 @@ const { img, label, isGradient = false } = Astro.props as Props;
 
 <figure
   class="relative px-12 pt-6 pb-12 w-full max-w-[300px] md:max-w-[500px] rounded-xl overflow-hidden"
+  itemscope
+  itemtype="https://schema.org/Audience"
 >
-  <img src={img} alt={label} class="mx-auto size-20 md:size-28" />
+  <img
+    src={img}
+    alt={label}
+    class="mx-auto size-20 md:size-28"
+    loading="lazy"
+  />
   <figcaption class="text-custom-md mt-8">{label}</figcaption>
   <div
     class={`absolute -z-10 left-0 top-0 w-full h-full bg-radial ${isGradient ? "from-dark to-primary opacity-[22%]" : "from-white to-white/30 opacity-5"}`}

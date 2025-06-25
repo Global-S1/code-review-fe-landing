@@ -1,13 +1,16 @@
 ---
-interface Props {
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"h2"> {
   class?: string;
 }
 
-const { class: customClass = "" } = Astro.props as Props;
+const { class: customClass = "", ...restProps } = Astro.props as Props;
 ---
 
 <h2
   class={`bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-center text-transparent heading-h2 w-fit mx-auto py-2 ${customClass}`}
+  {...restProps}
 >
   <slot />
 </h2>

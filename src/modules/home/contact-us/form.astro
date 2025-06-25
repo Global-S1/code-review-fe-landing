@@ -11,6 +11,10 @@ const content = t.pages.home.contactUs.form;
   id="contact-form"
   class="w-full px-6 rounded-lg shadow-md space-y-6"
   novalidate
+  role="form"
+  aria-labelledby="form-title"
+  action="/api/send"
+  method="post"
 >
   <div class="w-full">
     <label for="name" class="block mb-2"> {content.name} </label>
@@ -20,9 +24,16 @@ const content = t.pages.home.contactUs.form;
       name="name"
       placeholder={content.placeholder}
       required
+      aria-describedby="error-name"
+      aria-invalid="false"
       class="mt-1 block w-full rounded-xl border border-gray-500 bg-white/5 shadow-sm py-2 px-4 text-xl"
     />
-    <p id="error-name" class="text-red-500 text-sm mt-1 hidden">
+    <p
+      id="error-name"
+      class="text-red-500 text-sm mt-1 hidden"
+      role="alert"
+      aria-live="assertive"
+    >
       {content.validations.name}
     </p>
   </div>
@@ -36,6 +47,8 @@ const content = t.pages.home.contactUs.form;
         name="email"
         placeholder={content.placeholder}
         required
+        aria-describedby="error-email"
+        aria-invalid="false"
         class="mt-1 block w-full rounded-xl border border-gray-500 bg-white/5 shadow-sm py-2 px-4 text-xl"
       />
       <p id="error-email" class="text-red-500 text-sm mt-1 hidden">
@@ -51,6 +64,8 @@ const content = t.pages.home.contactUs.form;
         name="phone"
         required
         placeholder={content.placeholder}
+        aria-describedby="error-phone"
+        aria-invalid="false"
         class="mt-1 block w-full rounded-xl border border-gray-500 bg-white/5 shadow-sm py-2 px-4 text-xl"
       />
       <p id="error-phone" class="text-red-500 text-sm mt-1 hidden">
@@ -158,6 +173,8 @@ const content = t.pages.home.contactUs.form;
 
   const showError = (id, message) => {
     const el = document.getElementById(id);
+    const input = document.querySelector(`[aria-describedby="${id}"]`);
+    input.setAttribute("aria-invalid", "true");
     el.textContent = message;
     el.classList.remove("hidden");
   };

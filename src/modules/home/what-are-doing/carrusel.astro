@@ -14,6 +14,7 @@ const carruselItems = content.cards;
   <button
     class="z-10 hidden md:block pointer-events-auto p-2 rounded-full border border-white text-white bg-white/10 hover:bg-black/70 transition mr-4 cursor-pointer"
     onclick="prevSlide()"
+    aria-label="Anterior"
   >
     <ChevronLeft />
   </button>
@@ -39,6 +40,7 @@ const carruselItems = content.cards;
   <button
     class="z-10 hidden md:block pointer-events-auto p-2 rounded-full border border-white text-white bg-white/10 hover:bg-black/70 transition cursor-pointer"
     onclick="nextSlide()"
+    aria-label="Siguiente"
   >
     <ChevronRight />
   </button>
