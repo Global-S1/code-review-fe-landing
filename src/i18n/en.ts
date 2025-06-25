@@ -5,6 +5,15 @@ export default {
     fr: "French",
     pt: "Portuguese",
   },
+  metadata: {
+    description:
+      "Accelerate your development with AI: fewer bugs, automatic documentation, and intelligent code review. Request your free demo today!",
+    socialMedia: {
+      title: "CODARI Pro - AI-Powered Code Review",
+      description:
+        "Reduce critical errors and boost productivity with automated reviews and AI-powered technical documentation.",
+    },
+  },
   title: "CODARI Pro",
   logo: "CODARI Pro",
   pages: {

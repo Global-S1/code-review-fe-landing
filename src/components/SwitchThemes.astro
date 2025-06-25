@@ -33,6 +33,7 @@ const themes = [
             style={`background-image: linear-gradient(to bottom right, ${theme.from}, ${theme.to})`}
             data-theme={theme.id}
             onclick="applyTheme(this.dataset.theme)"
+            aria-label="Cambio de tema"
           />
         ))
       }

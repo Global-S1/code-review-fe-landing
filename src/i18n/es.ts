@@ -5,6 +5,15 @@ export default {
     fr: "Frances",
     pt: "Portugués",
   },
+  metadata: {
+    description:
+      "Acelera tu desarrollo con IA: menos bugs, documentación automática y revisión inteligente de código. ¡Solicita tu demo gratis hoy!",
+    socialMedia: {
+      title: "CODARI Pro - Revisión de código impulsada por IA",
+      description:
+        "Reduce errores críticos y mejora la productividad con revisión automática y documentación técnica impulsada por IA.",
+    },
+  },
   title: "CODARI Pro",
   logo: "CODARI Pro",
   pages: {

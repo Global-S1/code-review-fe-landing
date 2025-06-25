@@ -1,6 +1,8 @@
 ---
 import Footer from "@components/footer/Footer.astro";
 import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
+import { languajeList } from "@i18n/config/languaje";
+import { translator } from "@i18n/config/translator";
 import "@styles/global.css";
 
 interface Props {
@@ -9,19 +11,64 @@ interface Props {
 }
 
 const { lang, title = "CODARI Pro" } = Astro.props as Props;
+const t = translator(lang);
+const metadata = t.metadata;
+const websiteURL = "https://codary.globals.one";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: title,
+  operatingSystem: "All",
+  applicationCategory: "DeveloperTool",
+  description: metadata.description,
+  url: websiteURL,
+};
+const jsonLdScript = `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`;
 ---
 
 <!doctype html>
 <html lang={lang} data-theme="theme1" class="bg-dark text-white">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Put your description here." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>{title}</title>
-    <!-- TODO: Investigar como informar al crawler sobre el soporte multi idioma -->
-    <link rel="alternate" lang="es" href="https://tusitio.com/es" />
+    <meta name="description" content={metadata.description} />
+
+    <!-- Redes sociales -->
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={metadata.socialMedia.title} />
+    <meta
+      property="og:description"
+      content={metadata.socialMedia.description}
+    />
+    <meta property="og:url" content={websiteURL} />
+    <meta property="og:site_name" content={title} />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metadata.socialMedia.title} />
+    <meta
+      name="twitter:description"
+      content={metadata.socialMedia.description}
+    />
+
+    <!-- Alternancia de idiomas -->
+    <meta name="generator" content={Astro.generator} />
+    {
+      languajeList.map((language) => (
+        <link rel="alternate" lang={language} href={`/${language}`} />
+      ))
+    }
+
+    <!-- Favicon / PWA -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+
+    <!-- JSON/LD Structured Data -->
+    <Fragment set:html={jsonLdScript} />
   </head>
   <body>
     <slot />
