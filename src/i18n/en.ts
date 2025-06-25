@@ -27,28 +27,28 @@ export default {
         title: "What does the AI do?",
         cards: [
           {
-            image: "/src/assets/icons/code-review.svg",
+            image: "/icons/code-review.svg",
             label: "Automatic code review",
             description:
               "Improve your code according to standards like SonarQube",
           },
           {
-            image: "/src/assets/icons/intelligent-comments.svg",
+            image: "/icons/intelligent-comments.svg",
             label: "Intelligent comments on PRs",
             description: "Collaborative editing with AI",
           },
           {
-            image: "/src/assets/icons/contextual-chat.svg",
+            image: "/icons/contextual-chat.svg",
             label: "Contextual chat",
             description: "AI that understands your code and answers questions",
           },
           {
-            image: "/src/assets/icons/documentation.svg",
+            image: "/icons/documentation.svg",
             label: "Automatic technical documentation",
             description: "Everything up to date, no manual writing",
           },
           {
-            image: "/src/assets/icons/github.svg",
+            image: "/icons/github.svg",
             label: "Secure GitHub integration",
             description: "OAuth and protected private repos",
           },
@@ -85,22 +85,22 @@ export default {
         title: "Who is this for?",
         card: [
           {
-            img: "/src/assets/icons/dev-team.svg",
+            img: "/icons/dev-team.svg",
             label: "Developers and software teams",
             isGradient: false,
           },
           {
-            img: "/src/assets/icons/startups.svg",
+            img: "/icons/startups.svg",
             label: "Startups seeking speed without sacrificing quality",
             isGradient: true,
           },
           {
-            img: "/src/assets/icons/consultant.svg",
+            img: "/icons/consultant.svg",
             label: "Consultancies that need to maintain standards",
             isGradient: true,
           },
           {
-            img: "/src/assets/icons/education.svg",
+            img: "/icons/education.svg",
             label: "Educational platforms that teach clean code",
             isGradient: false,
           },

@@ -27,27 +27,27 @@ export default {
         title: "O que a IA faz?",
         cards: [
           {
-            image: "/src/assets/icons/code-review.svg",
+            image: "/icons/code-review.svg",
             label: "Revisão automática de código",
             description: "Melhore seu código conforme padrões como o SonarQube",
           },
           {
-            image: "/src/assets/icons/intelligent-comments.svg",
+            image: "/icons/intelligent-comments.svg",
             label: "Comentários inteligentes em PRs",
             description: "Edição colaborativa com IA",
           },
           {
-            image: "/src/assets/icons/contextual-chat.svg",
+            image: "/icons/contextual-chat.svg",
             label: "Chat contextual",
             description: "IA que entende seu código e responde perguntas",
           },
           {
-            image: "/src/assets/icons/documentation.svg",
+            image: "/icons/documentation.svg",
             label: "Documentação técnica automática",
             description: "Tudo sempre atualizado, sem escrever manualmente",
           },
           {
-            image: "/src/assets/icons/github.svg",
+            image: "/icons/github.svg",
             label: "Integração segura com o GitHub",
             description: "OAuth e repositórios privados protegidos",
           },
@@ -84,22 +84,22 @@ export default {
         title: "Para quem é isso?",
         card: [
           {
-            img: "/src/assets/icons/dev-team.svg",
+            img: "/icons/dev-team.svg",
             label: "Desenvolvedores e equipes de software",
             isGradient: false,
           },
           {
-            img: "/src/assets/icons/startups.svg",
+            img: "/icons/startups.svg",
             label: "Startups que buscam velocidade sem sacrificar qualidade",
             isGradient: true,
           },
           {
-            img: "/src/assets/icons/consultant.svg",
+            img: "/icons/consultant.svg",
             label: "Consultorias que precisam manter padrões",
             isGradient: true,
           },
           {
-            img: "/src/assets/icons/education.svg",
+            img: "/icons/education.svg",
             label: "Plataformas educacionais que ensinam código limpo",
             isGradient: false,
           },
