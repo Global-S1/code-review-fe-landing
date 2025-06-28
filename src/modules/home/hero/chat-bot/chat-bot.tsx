@@ -1,14 +1,14 @@
+import { ChevronDown } from "lucide-react";
 import { motion, type Variants } from "motion/react";
 import { useRef, useState } from "react";
 import { ELocalStorage } from "src/enums/local-storage.enum";
 import { sendQuestion } from "src/services/home/home.service";
 import { EmptyChat } from "./empty-chat";
-import { InputChat } from "./input-chat";
+import { InputChatbot } from "./input-chatbot.draw";
 import type { IMessage } from "./interfaces/message.interface";
 import { Messages } from "./messages";
-import { InputChatbot } from "./input-chatbot.draw";
 
-export const ChatBot = () => {
+export default function ChatBot() {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [input, setInput] = useState<string>("");
@@ -18,21 +18,20 @@ export const ChatBot = () => {
   const containerCloudVariants: Variants = {
     focused: {
       width: "100%",
-      height: "60vh",
-      top: "-50vh",
-      background: "linear-gradient(to right, #1A0259cc, #277686cc)",
+      height: "85%",
+      bottom: "0px",
+      background:
+        "linear-gradient( to right, color-mix(in oklab, var(--color-primary) 35%, transparent), color-mix(in oklab, var(--color-secondary) 40%, transparent))",
       backdropFilter: "blur(10px)",
-      boxShadow: "0 4px 0px rgba(39, 118, 134, 0.5)",
       transition: { duration: 0.2 },
+      borderRadius: "20px",
     },
     unfocused: {
       width: "auto",
-      height: "46px",
+      height: "12px",
       fontSize: "10px",
       textWrap: "nowrap",
       padding: "11px 18px",
-      background: "linear-gradient(to right, #1A0259, #277686)",
-      border: "solid 2px #19DBCA",
       boxShadow: "none",
       backdropFilter: "none",
       transition: { duration: 0.2 },
@@ -122,5 +121,34 @@ export const ChatBot = () => {
     }).finally(() => setIsLoading(false));
   };
 
-  return <InputChatbot setIsFocus={setIsFocus} />;
-};
+  return (
+    <div>
+      <InputChatbot isFocus={isFocus} setIsFocus={setIsFocus} />
+      <motion.div
+        className={`absolute overflow-hidden z-0 ${
+          isFocus && "after:opacity-0 before:opacity-0"
+        }`}
+        variants={containerCloudVariants}
+        animate={isFocus ? "focused" : "unfocused"}
+      >
+        {isFocus && (
+          <div className="flex flex-col h-full">
+            <div className="px-6 md:px-16 pt-[20px] md:block">
+              <button
+                className="size-[40px] rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-dark cursor-pointer duration-150"
+                onClick={() => setIsFocus(false)}
+              >
+                <ChevronDown />
+              </button>
+            </div>
+
+            {(!messages || messages.length == 0) && (
+              <EmptyChat sendMessage={sendMessage} />
+            )}
+            {messages && <Messages messages={messages} />}
+          </div>
+        )}
+      </motion.div>
+    </div>
+  );
+}

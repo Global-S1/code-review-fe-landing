@@ -6,7 +6,7 @@
 }
 
 @font-face {
-    font-family: "Futura medium";
+    font-family: "futura-medium";
     src: url("/fonts/futura-medium.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
@@ -21,7 +21,7 @@
 
 :root {
     --font-grandis: "Grandis";
-    --font-futura-medium: "Futura medium";
+    --font-futura-medium: "futura-medium";
     --font-futura-bold: "Futura Bold";
 }
 

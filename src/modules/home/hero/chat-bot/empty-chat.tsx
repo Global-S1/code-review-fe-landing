@@ -30,26 +30,26 @@ export const EmptyChat = ({ sendMessage }: Props) => {
   };
   return (
     <>
-      <div className="px-[60px] mb-[10px] md:py-[20px] grow">
-        <div className="flex gap-4 items-center mt-[30px]">
-          <p className="font-futura font-bold text-[28px] md:text-[42px]">
-            ¡Hola!
-          </p>
-          <motion.img
-            src={`chat-bot/bot-in-chat.svg`}
-            variants={iconVariants}
-            initial="hidden"
-            animate="visible"
-          />
-        </div>
+      <div className="px-6 md:px-16 md:py-[20px] grow flex flex-col justify-between">
         <div>
-          <p className={`text-[28px] md:text-[42px]`}>
+          <div className="flex gap-4 items-center mt-[30px]">
+            <p className="heading-h2">¡Hola!</p>
+            <motion.div
+              className="size-12 mask mask-[url('/chat-bot/bot-in-chat.svg')] mask-contain mask-center mask-no-repeat bg-secondary"
+              variants={iconVariants}
+              initial="hidden"
+              animate="visible"
+            />
+          </div>
+          <p
+            className={`heading-h4 mt-4 text-transparent bg-gradient-to-r from-secondary to-primary bg-clip-text`}
+          >
             ¿En qué te puedo ayudar?
           </p>
         </div>
-      </div>
-      <div className="w-[80%] mx-auto mb-4">
-        <InstantMessages messages={messages} sendMessages={sendMessage} />
+        <div className="mx-auto mb-4">
+          <InstantMessages messages={messages} sendMessages={sendMessage} />
+        </div>
       </div>
     </>
   );

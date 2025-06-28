@@ -9,9 +9,13 @@
         @apply font-grandis text-2xl sm:text-3xl md:text-5xl;
     }
 
+    .heading-h4{
+        @apply font-grandis text-xl sm:text-2xl md:text-4xl;
+    }
+
     /* Text */
     .text-custom-xl{
-        @apply text-xl md:text-3xl;
+        @apply text-xl md:text-2xl xl:text-3xl;
     }
 
     .text-custom-lg{

@@ -59,7 +59,7 @@ export const InstantMessages = ({ messages, sendMessages }: Props) => {
             variants={buttonVariants(index)}
             initial="hidden"
             animate="visible"
-            className="rounded-[20px] px-[13px] md:px-[28px] py-[10px] shrink-0 bg-[#B14DFF40] border-2 border-[rgba(25,219,202,.4)] hover:border-white duration-100 font-urbanist font-medium text-[14px] md:text-[20px]"
+            className="rounded-[20px] px-[13px] md:px-[28px] py-[10px] shrink-0 bg-secondary/20 border-2 border-primary/40 hover:border-white duration-100 font-urbanist font-medium text-[14px] md:text-[20px] cursor-pointer"
             onClick={() => sendMessages(message)}
           >
             {message}
