@@ -64,7 +64,7 @@ export default {
         ],
       },
       benefits: {
-        title: "REAL <br/> BENEFITS",
+        title: "<span>REAL</span> BENEFITS",
         card: [
           "Up to <span>90%</span> fewer critical bugs in production",
           "<span>40%</span> shorter review times",
@@ -73,7 +73,7 @@ export default {
         ],
       },
       contactUs: {
-        title: "Take the first step. <br/> Let's talk today.",
+        title: "Take the first step <br/> Let's talk today",
         form: {
           placeholder: "Write here...",
           name: "Full Name",

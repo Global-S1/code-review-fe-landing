@@ -15,7 +15,7 @@ const currentLang = Astro.params.lang as TLanguage;
 
   <label
     for="lang-toggle"
-    class="cursor-pointer flex items-center gap-2 px-3 py-2 rounded-lg text-white bg-dark capitalize"
+    class="cursor-pointer flex items-center gap-2 px-3 py-2 rounded-lg text-white capitalize"
   >
     <Globe size={20} class="text-primary" />
     {Object.keys(languages).find((code) => code === currentLang)}

@@ -4,7 +4,7 @@ import { ChevronDown } from "@lucide/astro";
 const themes = [
   { id: "theme1", from: "#00F5A0", to: "#00D9FF" },
   { id: "theme2", from: "#0066FF", to: "#00FFC6" },
-  { id: "theme3", from: "#19DBCA", to: "#5557D9" },
+  { id: "theme3", from: "#00FFE0", to: "#FFD500" },
 ];
 ---
 
@@ -56,6 +56,8 @@ const themes = [
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme) {
     document.documentElement.setAttribute("data-theme", savedTheme);
+  } else {
+    localStorage.setItem("data-theme", "theme1");
   }
 
   window.applyTheme = (theme) => {

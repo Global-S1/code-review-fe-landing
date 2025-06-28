@@ -4,6 +4,8 @@ import SwitchLang from "@components/SwitchLang.astro";
 import SwitchThemes from "@components/SwitchThemes.astro";
 import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
 import { translator } from "@i18n/config/translator";
+import Waves from "./waves.astro";
+import { ChatBot } from "./chat-bot/chat-bot";
 
 const lang = Astro.params.lang as TLanguage;
 const t = translator(lang);
@@ -13,7 +15,7 @@ const content = t.pages.home.hero;
 <header
   class="relative container mx-auto py-4 h-[80vh] max-h-[900px] rounded-b-3xl flex flex-col"
 >
-  <!-- <Waves /> -->
+  <Waves />
   <nav class="flex items-center justify-between">
     <Logo />
     <div class="flex items-center gap-4">
@@ -26,14 +28,15 @@ const content = t.pages.home.hero;
       <h1 class="text-white text-center heading-h2 linehe">
         {content.slogan.first}
         <span
-          class="bg-gradient-to-r from-primary to-secondary bg-clip-text py-2 text-transparent mt-6"
+          class="block w-fit mx-auto bg-gradient-to-r from-primary to-secondary bg-clip-text py-2 text-transparent mt-6"
           >{content.slogan.second}</span
         >
       </h1>
 
-      <p class="text-center text-custom-xl mt-4 font-light">
+      <p class="text-center text-custom-xl mt-6 font-light">
         {content.description}
       </p>
     </div>
   </div>
+  <!-- <ChatBot /> -->
 </header>

@@ -63,7 +63,7 @@ export default {
         ],
       },
       benefits: {
-        title: "BENEFÍCIOS <br/> REAIS",
+        title: "<span>BENEFÍCIOS</span> REAIS",
         card: [
           "Até <span>90%</span> menos bugs críticos em produção",
           "<span>40%</span> menos tempo em revisões",
@@ -72,7 +72,7 @@ export default {
         ],
       },
       contactUs: {
-        title: "Dê o primeiro passo. <br/> Vamos conversar hoje.",
+        title: "Dê o primeiro passo <br/> Vamos conversar hoje",
         form: {
           placeholder: "Escreva aqui...",
           name: "Nome e Sobrenome",

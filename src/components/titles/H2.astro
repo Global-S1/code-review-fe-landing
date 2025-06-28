@@ -9,7 +9,7 @@ const { class: customClass = "", ...restProps } = Astro.props as Props;
 ---
 
 <h2
-  class={`bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-center text-transparent heading-h2 w-fit mx-auto py-2 ${customClass}`}
+  class={`bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-center text-transparent heading-h2 w-fit mx-auto py-2 ${customClass} leading-[2.8rem] md:leading-[5.4rem]`}
   {...restProps}
 >
   <slot />

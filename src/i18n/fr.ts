@@ -65,7 +65,7 @@ export default {
         ],
       },
       benefits: {
-        title: "AVANTAGES <br/> RÉELS",
+        title: "<span>AVANTAGES</span> RÉELS",
         card: [
           "Jusqu'à <span>90%</span> de bugs critiques en moins en production",
           "<span>40%</span> de temps en moins pour les revues",
@@ -74,7 +74,7 @@ export default {
         ],
       },
       contactUs: {
-        title: "Faites le premier pas. <br/> Parlons aujourd'hui.",
+        title: "Faites le premier pas <br/> Parlons aujourd'hui",
         form: {
           placeholder: "Écrivez ici...",
           name: "Nom et Prénom",

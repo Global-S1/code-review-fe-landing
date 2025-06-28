@@ -21,9 +21,9 @@
     }
 
     html[data-theme="theme3"] {
-        --color-primary: #19DBCA;
-        --color-secondary: #5557D9;
-        --color-dark: #0E032A;
+        --color-primary: #00FFE0;
+        --color-secondary: #FFD500;
+        --color-dark: #0C0F1A;
         --color-light: #FFFFFF;
     }
 }
