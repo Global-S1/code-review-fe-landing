@@ -67,10 +67,22 @@ export default {
       benefits: {
         title: "<span>AVANTAGES</span> RÉELS",
         card: [
-          "Jusqu'à <span>90%</span> de bugs critiques en moins en production",
-          "<span>40%</span> de temps en moins pour les revues",
-          "<span>85%</span> de rétention mensuelle des utilisateurs",
-          "Documentation <span>toujours à jour</span>",
+          {
+            text: "Jusqu'à <span>90%</span> de bugs critiques en moins en production",
+            percent: 90,
+          },
+          {
+            text: "<span>40%</span> de temps en moins pour les revues",
+            percent: 40,
+          },
+          {
+            text: "<span>85%</span> de rétention mensuelle des utilisateurs",
+            percent: 85,
+          },
+          {
+            text: "Documentation <span>toujours à jour</span>",
+            percent: 100,
+          },
         ],
       },
       contactUs: {

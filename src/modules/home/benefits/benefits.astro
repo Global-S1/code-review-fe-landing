@@ -1,8 +1,8 @@
 ---
 import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
-import BenefitItem from "./benefit-item.astro";
 import { translator } from "@i18n/config/translator";
 import PointsLeft from "@components/background/points-left.astro";
+import { BenefitsItem } from "./benefit-item";
 
 const lang = Astro.params.lang as TLanguage;
 const t = translator(lang);
@@ -25,7 +25,13 @@ const content = t.pages.home.benefits;
         class="-z-10 absolute w-full h-full left-0 top-0 bg-radial from-white from-30% to-gray-500 opacity-15"
       >
       </div>
-      {content.card.map((i) => <BenefitItem set:html={i} />)}
+      {
+        content.card.map((i) => (
+          <BenefitsItem percent={i.percent} client:visible>
+            {i.text}
+          </BenefitsItem>
+        ))
+      }
     </ul>
   </div>
   <PointsLeft />

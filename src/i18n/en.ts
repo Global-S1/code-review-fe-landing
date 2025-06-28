@@ -66,10 +66,22 @@ export default {
       benefits: {
         title: "<span>REAL</span> BENEFITS",
         card: [
-          "Up to <span>90%</span> fewer critical bugs in production",
-          "<span>40%</span> shorter review times",
-          "<span>85%</span> monthly user retention",
-          "<span>Always up-to-date</span> documentation",
+          {
+            text: "Up to <span>90%</span> fewer critical bugs in production",
+            percent: 90,
+          },
+          {
+            text: "<span>40%</span> shorter review times",
+            percent: 40,
+          },
+          {
+            text: "<span>85%</span> monthly user retention",
+            percent: 85,
+          },
+          {
+            text: "<span>Always up-to-date</span> documentation",
+            percent: 100,
+          },
         ],
       },
       contactUs: {

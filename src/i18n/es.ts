@@ -65,10 +65,22 @@ export default {
       benefits: {
         title: "<span>BENEFICIOS</span> REALES",
         card: [
-          "Hasta <span>90%</span> menos bugs críticos en producción",
-          "<span/>40%</span> menos tiempos en revisiones",
-          "<span>85%</span/> retención mensual de usuarios",
-          "Documentación <span>siempre al día</span/>",
+          {
+            text: "Hasta <span>90%</span> menos bugs críticos en producción",
+            percent: 90,
+          },
+          {
+            text: "<span/>40%</span> menos tiempos en revisiones",
+            percent: 40,
+          },
+          {
+            text: "<span>85%</span/> retención mensual de usuarios",
+            percent: 85,
+          },
+          {
+            text: "Documentación <span>siempre al día</span/>",
+            percent: 100,
+          },
         ],
       },
       contactUs: {
