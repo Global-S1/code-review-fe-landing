@@ -1,0 +1,18 @@
+---
+import { BenefitsPill } from "./pill.tsx";
+
+interface Props {
+  label: string;
+  percent: number;
+}
+
+const { label, percent } = Astro.props;
+---
+
+<li class="flex items-center gap-2">
+  <BenefitsPill percent={percent} client:load />
+  <p
+    class="[&>span]:text-secondary [&>span]:font-semibold text-custom-md"
+    set:html={label}
+  />
+</li>

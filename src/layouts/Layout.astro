@@ -1,4 +1,6 @@
 ---
+import StarsEffect from "@components/background/stars-effect.astro";
+import CursorShadow from "@components/cursor/cursor-shadow.astro";
 import Footer from "@components/footer/Footer.astro";
 import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
 import { languajeList } from "@i18n/config/languaje";
@@ -71,6 +73,9 @@ const jsonLdScript = `<script type="application/ld+json">${JSON.stringify(jsonLd
     <Fragment set:html={jsonLdScript} />
   </head>
   <body>
+    <StarsEffect />
+    <CursorShadow />
+
     <slot />
     <Footer />
   </body>

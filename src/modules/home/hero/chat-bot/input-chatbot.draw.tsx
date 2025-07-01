@@ -52,10 +52,10 @@ export const InputChatbot = ({ isFocus, setIsFocus }: Props) => {
         </div>
 
         <button
-          className="bg-primary px-4 md:px-6 py-2 h-fit rounded-2xl font-bold"
+          className="bg-primary px-4 md:px-6 py-2 h-fit rounded-2xl font-bold cursor-pointer"
           onClick={() => setIsFocus(true)}
         >
-          <span className="hidden md:inline">Hablemos ahora</span>
+          <span className="hidden md:inline text-dark">Hablemos ahora</span>
           <SendHorizonal className="md:hidden" />
         </button>
       </motion.label>

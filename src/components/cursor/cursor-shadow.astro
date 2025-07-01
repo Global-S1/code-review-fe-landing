@@ -1,0 +1,40 @@
+<div>
+  <div
+    id="mouse-follower"
+    class="size-3 rounded-full border border-primary fixed top-0 left-0 pointer-events-none z-[999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out"
+  >
+  </div>
+  <div
+    id="mouse-follower-aura"
+    class="size-8 rounded-full bg-secondary/40 fixed top-0 left-0 pointer-events-none z-[998] -translate-x-1/2 -translate-y-1/2"
+  >
+  </div>
+</div>
+
+<script is:inline>
+  const follower = document.getElementById("mouse-follower");
+  const aura = document.getElementById("mouse-follower-aura");
+
+  let mouseX = 0;
+  let mouseY = 0;
+
+  let auraX = 0;
+  let auraY = 0;
+
+  // Movimiento instantáneo para el punto principal
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    follower.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+  });
+
+  // Movimiento suave (retrasado) para el aura
+  function animateAura() {
+    auraX += (mouseX - auraX) * 0.1;
+    auraY += (mouseY - auraY) * 0.1;
+    aura.style.transform = `translate(${auraX}px, ${auraY}px)`;
+    requestAnimationFrame(animateAura);
+  }
+
+  animateAura();
+</script>

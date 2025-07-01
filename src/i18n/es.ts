@@ -36,27 +36,27 @@ export default {
         title: "¿Qué hace la IA?",
         cards: [
           {
-            image: "/icons/code-review.svg",
+            image: "/icons/code-review.png",
             label: "Revisión automática de código",
             description: "Mejora tu código según estándares com SonarQube",
           },
           {
-            image: "/icons/intelligent-comments.svg",
+            image: "/icons/intelligent-comments.png",
             label: "Comentarios inteligentes en PRs",
             description: "Edición colaborativa con IA",
           },
           {
-            image: "/icons/contextual-chat.svg",
+            image: "/icons/contextual-chat.png",
             label: "Chat contextual",
             description: "IA que entiende tu código y responde preguntas",
           },
           {
-            image: "/icons/documentation.svg",
+            image: "/icons/documentation.png",
             label: "Documentación técnica automática",
             description: "Todo actualizado, sin escribir a mano",
           },
           {
-            image: "/icons/github.svg",
+            image: "/icons/github.png",
             label: "Integración segura con GitHub",
             description: "OAuth y repos privados protegidos",
           },
@@ -105,22 +105,22 @@ export default {
         title: "¿Para quién es esto?",
         card: [
           {
-            img: "/icons/dev-team.svg",
+            img: "/icons/dev-team.png",
             label: "Desarrolladores y equipos de software",
             isGradient: false,
           },
           {
-            img: "/icons/startups.svg",
+            img: "/icons/startups.png",
             label: "Startups que buscan velocidad sin sacrificar calidad",
             isGradient: true,
           },
           {
-            img: "/icons/consultant.svg",
+            img: "/icons/consultant.png",
             label: "Consultoras que necesitan mantener estándares",
             isGradient: true,
           },
           {
-            img: "/icons/education.svg",
+            img: "/icons/education.png",
             label: "Plataformas educativas que enseñan código limpio",
             isGradient: false,
           },

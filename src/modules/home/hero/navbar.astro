@@ -1,0 +1,35 @@
+---
+import Logo from "@components/Logo.astro";
+import SwitchLang from "@components/SwitchLang.astro";
+import SwitchThemes from "@components/SwitchThemes.astro";
+import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
+import { translator } from "@i18n/config/translator";
+
+const lang = Astro.params.lang as TLanguage;
+const t = translator(lang);
+const content = t.pages.home.hero;
+---
+
+<nav
+  id="navHeader"
+  class="flex items-center justify-between fixed container bg-dark/20"
+>
+  <Logo />
+  <div class="flex items-center gap-4">
+    <SwitchLang languages={t.languageOptions} />
+    <SwitchThemes />
+  </div>
+</nav>
+
+<script is:inline>
+  const nav = document.getElementById("navHeader");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 10) {
+      nav.classList.add("bg-dark/80", "backdrop-blur-md", "top-0", "py-4");
+      nav.classList.remove("bg-transparent");
+    } else {
+      nav.classList.remove("bg-dark/80", "backdrop-blur-md", "top-0", "py-4");
+      nav.classList.add("bg-transparent");
+    }
+  });
+</script>

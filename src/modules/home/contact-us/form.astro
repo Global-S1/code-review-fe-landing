@@ -17,13 +17,14 @@ const content = t.pages.home.contactUs.form;
   method="post"
 >
   <div class="w-full">
-    <label for="name" class="block mb-2"> {content.name} </label>
+    <label for="name" class="block mb-2 text-custom-md"> {content.name} </label>
     <input
       type="text"
       id="name"
       name="name"
       placeholder={content.placeholder}
       required
+      autocomplete="off"
       aria-describedby="error-name"
       aria-invalid="false"
       class="mt-1 block w-full rounded-xl border border-gray-500 bg-white/5 shadow-sm py-2 px-4 text-xl"
@@ -40,12 +41,15 @@ const content = t.pages.home.contactUs.form;
 
   <div class="flex flex-col md:flex-row gap-x-12 gap-y-6">
     <div class="grow">
-      <label for="email" class="block mb-2"> {content.email} </label>
+      <label for="email" class="block mb-2 text-custom-md">
+        {content.email}
+      </label>
       <input
         type="email"
         id="email"
         name="email"
         placeholder={content.placeholder}
+        autocomplete="off"
         required
         aria-describedby="error-email"
         aria-invalid="false"
@@ -57,11 +61,14 @@ const content = t.pages.home.contactUs.form;
     </div>
 
     <div class="grow">
-      <label for="phone" class="block mb-2"> {content.cellphone} </label>
+      <label for="phone" class="block mb-2 text-custom-md">
+        {content.cellphone}
+      </label>
       <input
         type="tel"
         id="phone"
         name="phone"
+        autocomplete="off"
         required
         placeholder={content.placeholder}
         aria-describedby="error-phone"
@@ -109,12 +116,12 @@ const content = t.pages.home.contactUs.form;
           </div>
         </label>
       </div>
-      <label for="terms" class="text-sm">
+      <label for="terms" class="">
         {content.termsConditions}
         <span class="text-red-500">*</span>
       </label>
     </div>
-    <p id="error-terms" class="text-red-500 text-sm hidden mt-1">
+    <p id="error-terms" class="text-red-500 hidden mt-1">
       {content.validations.termsConditions}
     </p>
   </div>
@@ -161,7 +168,7 @@ const content = t.pages.home.contactUs.form;
   <div class="flex justify-center">
     <button
       type="submit"
-      class="bg-primary text-white font-semibold py-2 px-12 rounded-2xl hover:bg-opacity-80 transition"
+      class="bg-primary text-dark font-semibold py-2 px-12 rounded-2xl hover:bg-primary/80 transition cursor-pointer duration-500 text-custom-lg hover:shadow-lg hover:shadow-primary"
     >
       {content.button}
     </button>

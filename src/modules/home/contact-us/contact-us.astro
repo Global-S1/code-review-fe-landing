@@ -12,10 +12,30 @@ const content = t.pages.home.contactUs;
 
 <section class="relative my-24 px-4" id="contactUs">
   <div
-    class="max-w-5xl mx-auto border border-primary/20 shadow-lg shadow-primary/20 rounded-xl p-4 md:p-12"
+    class="max-w-5xl mx-auto border border-primary/20 bg-dark shadow-lg hover:shadow-2xl shadow-primary/20 rounded-xl p-4 md:p-12 opacity-0 translate-y-8 transition duration-700 ease-in-out"
+    id="form-container"
   >
     <H2 class="mb-12" set:html={content.title} id="form-title" />
     <Form />
   </div>
   <PointsRight />
 </section>
+
+<script is:inline>
+  const el = document.getElementById("form-container");
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        el.classList.remove("opacity-0", "translate-y-8");
+        el.classList.add("opacity-100", "translate-y-0");
+        observer.unobserve(el);
+      }
+    },
+    {
+      threshold: 0.3,
+    }
+  );
+
+  observer.observe(el);
+</script>
