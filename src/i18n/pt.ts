@@ -30,6 +30,16 @@ export default {
             placeholder: "Escreva para nós, como podemos te ajudar?",
             button: "Vamos conversar agora",
           },
+          emptyChat: {
+            instantMessages: [
+              "Ver nossos serviços",
+              "Quem somos?",
+              "Nossos casos de sucesso",
+              "Contato",
+            ],
+            welcome: "Olá, eu sou o Codari!",
+            message: "Como posso te ajudar?",
+          },
         },
       },
       aboutIA: {
