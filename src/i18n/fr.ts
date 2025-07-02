@@ -104,7 +104,7 @@ export default {
           cellphone: "Téléphone",
           termsConditions: "J'accepte les termes et conditions",
           news: "Je souhaite recevoir des actualités et des promotions",
-          button: "Envoyer maintenant",
+          button: "Parlons maintenant",
           validations: {
             name: "Le nom est obligatoire",
             email: "Veuillez entrer un e-mail valide",

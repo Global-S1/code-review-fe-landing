@@ -42,12 +42,12 @@ export const EmptyChat = ({ content, sendMessage }: Props) => {
             {content.message}
           </p>
         </div>
-        <div className="mx-auto mb-4">
+        {/* <div className="mx-auto mb-4">
           <InstantMessages
             messages={content.instantMessages}
             sendMessages={sendMessage}
           />
-        </div>
+        </div> */}
       </div>
     </>
   );

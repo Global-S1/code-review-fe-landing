@@ -7,12 +7,11 @@ import { translator } from "@i18n/config/translator";
 
 const lang = Astro.params.lang as TLanguage;
 const t = translator(lang);
-const content = t.pages.home.hero;
 ---
 
 <nav
   id="navHeader"
-  class="flex items-center justify-between fixed container bg-dark/20"
+  class="z-50 flex items-center justify-between fixed container bg-dark/20"
 >
   <Logo />
   <div class="flex items-center gap-4">

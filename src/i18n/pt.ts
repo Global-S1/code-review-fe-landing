@@ -102,7 +102,7 @@ export default {
           cellphone: "Telefone",
           termsConditions: "Aceito os termos e condições",
           news: "Desejo receber notícias e promoções",
-          button: "Enviar agora",
+          button: "Vamos conversar agora",
           validations: {
             name: "O nome é obrigatório",
             email: "Digite um e-mail válido",

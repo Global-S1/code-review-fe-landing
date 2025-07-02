@@ -103,7 +103,7 @@ export default {
           cellphone: "Phone number",
           termsConditions: "I accept the terms and conditions",
           news: "I want to receive news and promotions",
-          button: "Send now",
+          button: "Let's talk now",
           validations: {
             name: "Name is required",
             email: "Enter a valid email",
