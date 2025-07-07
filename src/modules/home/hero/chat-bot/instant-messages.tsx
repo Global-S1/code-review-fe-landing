@@ -1,5 +1,4 @@
 import { motion, type Variants } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 
 interface Props {
   messages: string[];
@@ -7,10 +6,6 @@ interface Props {
 }
 
 export const InstantMessages = ({ messages, sendMessages }: Props) => {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [hasLeftOverflow, setLeftOverflow] = useState(false);
-  const [hasRightOverflow, setRightOverflow] = useState(false);
-
   const buttonVariants = (index: number): Variants => ({
     hidden: {
       scale: 0.2,
@@ -27,32 +22,9 @@ export const InstantMessages = ({ messages, sendMessages }: Props) => {
     },
   });
 
-  useEffect(() => {
-    const container = contentRef.current;
-
-    const checkOverflow = () => {
-      if (container) {
-        const { scrollLeft, scrollWidth, clientWidth } = container;
-        setLeftOverflow(scrollLeft > 0);
-        setRightOverflow(scrollLeft + clientWidth < scrollWidth);
-      }
-    };
-
-    checkOverflow();
-
-    container?.addEventListener("scroll", checkOverflow);
-
-    return () => {
-      container?.removeEventListener("scroll", checkOverflow);
-    };
-  }, [contentRef]);
-
   return (
     <div className="relative">
-      <div
-        ref={contentRef}
-        className="flex gap-4 w-full overflow-x-auto scrollbar-hidden"
-      >
+      <div className="flex gap-4 w-full overflow-x-auto scrollbar-hidden">
         {messages.map((message, index) => (
           <motion.button
             key={index}

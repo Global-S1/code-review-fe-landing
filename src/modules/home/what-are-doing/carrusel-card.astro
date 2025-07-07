@@ -16,14 +16,16 @@ const { description, image, label } = Astro.props as Props;
     class="absolute -z-10 left-0 top-0 h-full w-full bg-radial from-dark to-primary opacity-20"
   >
   </div>
-  <img
-    src={image}
-    alt={label}
-    class="size-16 md:size-36 object-center object-contain"
-  />
+  <div class="relative size-16 md:size-36">
+    <img
+      src={image}
+      alt={label}
+      class="size-16 md:size-36 object-center object-contain drop-shadow-sm drop-shadow-primary"
+    />
+  </div>
 
   <figcaption class="text-center">
-    <h4 class="font-bold text-custom-xl">{label}</h4>
+    <p class="font-bold text-custom-xl">{label}</p>
     <p class="text-custom-md mt-2">{description}</p>
   </figcaption>
 </figure>

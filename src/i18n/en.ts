@@ -30,34 +30,44 @@ export default {
             placeholder: "Write to us, how can we help you?",
             button: "Let's talk now",
           },
+          emptyChat: {
+            instantMessages: [
+              "View our services",
+              "Who are we?",
+              "Our success stories",
+              "Contact",
+            ],
+            welcome: "Hi, I'm Codari!",
+            message: "How can I help you?",
+          },
         },
       },
       aboutIA: {
         title: "What does the AI do?",
         cards: [
           {
-            image: "/icons/code-review.svg",
+            image: "/icons/code-review.png",
             label: "Automatic code review",
             description:
               "Improve your code according to standards like SonarQube",
           },
           {
-            image: "/icons/intelligent-comments.svg",
+            image: "/icons/intelligent-comments.png",
             label: "Intelligent comments on PRs",
             description: "Collaborative editing with AI",
           },
           {
-            image: "/icons/contextual-chat.svg",
+            image: "/icons/contextual-chat.png",
             label: "Contextual chat",
             description: "AI that understands your code and answers questions",
           },
           {
-            image: "/icons/documentation.svg",
+            image: "/icons/documentation.png",
             label: "Automatic technical documentation",
             description: "Everything up to date, no manual writing",
           },
           {
-            image: "/icons/github.svg",
+            image: "/icons/github.png",
             label: "Secure GitHub integration",
             description: "OAuth and protected private repos",
           },
@@ -88,14 +98,16 @@ export default {
         title: "Take the first step <br/> Let's talk today",
         form: {
           placeholder: "Write here...",
-          name: "Full Name",
+          firstname: "First name",
+          lastname: "Last name",
           email: "Email",
           cellphone: "Phone number",
           termsConditions: "I accept the terms and conditions",
           news: "I want to receive news and promotions",
-          button: "Send now",
+          button: "Let's talk now",
           validations: {
-            name: "Name is required",
+            firstname: "First name is required",
+            lastname: "Last name is required",
             email: "Enter a valid email",
             cellphone: "Enter a valid phone number",
             termsConditions: "You must accept the terms and conditions",
@@ -106,22 +118,22 @@ export default {
         title: "Who is this for?",
         card: [
           {
-            img: "/icons/dev-team.svg",
+            img: "/icons/dev-team.png",
             label: "Developers and software teams",
             isGradient: false,
           },
           {
-            img: "/icons/startups.svg",
+            img: "/icons/startups.png",
             label: "Startups seeking speed without sacrificing quality",
             isGradient: true,
           },
           {
-            img: "/icons/consultant.svg",
+            img: "/icons/consultant.png",
             label: "Consultancies that need to maintain standards",
             isGradient: true,
           },
           {
-            img: "/icons/education.svg",
+            img: "/icons/education.png",
             label: "Educational platforms that teach clean code",
             isGradient: false,
           },

@@ -8,16 +8,18 @@ const { img, label, isGradient = false } = Astro.props as Props;
 ---
 
 <figure
-  class="relative px-12 pt-6 pb-12 w-full max-w-[300px] md:max-w-[500px] rounded-xl overflow-hidden"
+  class="relative px-12 pt-6 pb-12 w-full max-w-[300px] md:max-w-[500px] rounded-xl overflow-hidden border border-transparent hover:border-secondary duration-200"
   itemscope
   itemtype="https://schema.org/Audience"
 >
-  <img
-    src={img}
-    alt={label}
-    class="mx-auto size-20 md:size-28"
-    loading="lazy"
-  />
+  <div class="relative size-20 mx-auto md:size-28">
+    <img
+      src={img}
+      alt={label}
+      class="mx-auto size-20 md:size-28 drop-shadow-xs drop-shadow-primary"
+      loading="lazy"
+    />
+  </div>
   <figcaption class="text-custom-md mt-8">{label}</figcaption>
   <div
     class={`absolute -z-10 left-0 top-0 w-full h-full bg-radial ${isGradient ? "from-dark to-primary opacity-[22%]" : "from-white to-white/30 opacity-5"}`}

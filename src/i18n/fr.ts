@@ -30,35 +30,45 @@ export default {
             placeholder: "Écrivez-nous, comment pouvons-nous vous aider ?",
             button: "Parlons maintenant",
           },
+          emptyChat: {
+            instantMessages: [
+              "Voir nos services",
+              "Qui sommes-nous ?",
+              "Nos réussites",
+              "Contact",
+            ],
+            welcome: "Bonjour, je suis Codari !",
+            message: "Comment puis-je vous aider ?",
+          },
         },
       },
       aboutIA: {
         title: "Que fait l'IA ?",
         cards: [
           {
-            image: "/icons/code-review.svg",
+            image: "/icons/code-review.png",
             label: "Revue de code automatique",
             description:
               "Améliorez votre code selon des standards comme SonarQube",
           },
           {
-            image: "/icons/intelligent-comments.svg",
+            image: "/icons/intelligent-comments.png",
             label: "Commentaires intelligents sur les PR",
             description: "Édition collaborative avec l'IA",
           },
           {
-            image: "/icons/contextual-chat.svg",
+            image: "/icons/contextual-chat.png",
             label: "Chat contextuel",
             description:
               "Une IA qui comprend votre code et répond à vos questions",
           },
           {
-            image: "/icons/documentation.svg",
+            image: "/icons/documentation.png",
             label: "Documentation technique automatique",
             description: "Toujours à jour, sans rédaction manuelle",
           },
           {
-            image: "/icons/github.svg",
+            image: "/icons/github.png",
             label: "Intégration sécurisée avec GitHub",
             description: "OAuth et dépôts privés protégés",
           },
@@ -89,15 +99,17 @@ export default {
         title: "Faites le premier pas <br/> Parlons aujourd'hui",
         form: {
           placeholder: "Écrivez ici...",
-          name: "Nom et Prénom",
+          firstname: "Prénom",
+          lastname: "Nom de famille",
           email: "Adresse e-mail",
           cellphone: "Téléphone",
           termsConditions: "J'accepte les termes et conditions",
           news: "Je souhaite recevoir des actualités et des promotions",
-          button: "Envoyer maintenant",
+          button: "Parlons maintenant",
           validations: {
-            name: "Le nom est obligatoire",
-            email: "Veuillez entrer un e-mail valide",
+            firstname: "Le prénom est obligatoire",
+            lastname: "Le nom de famille est obligatoire",
+            email: "Veuillez entrer une adresse e-mail valide",
             cellphone: "Veuillez entrer un numéro de téléphone valide",
             termsConditions: "Vous devez accepter les termes et conditions",
           },
@@ -107,22 +119,22 @@ export default {
         title: "À qui s'adresse cette solution ?",
         card: [
           {
-            img: "/icons/dev-team.svg",
+            img: "/icons/dev-team.png",
             label: "Développeurs et équipes logicielles",
             isGradient: false,
           },
           {
-            img: "/icons/startups.svg",
+            img: "/icons/startups.png",
             label: "Startups recherchant la rapidité sans sacrifier la qualité",
             isGradient: true,
           },
           {
-            img: "/icons/consultant.svg",
+            img: "/icons/consultant.png",
             label: "Cabinets de conseil qui doivent maintenir des standards",
             isGradient: true,
           },
           {
-            img: "/icons/education.svg",
+            img: "/icons/education.png",
             label: "Plateformes éducatives enseignant le code propre",
             isGradient: false,
           },

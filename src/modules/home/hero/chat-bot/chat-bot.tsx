@@ -1,14 +1,19 @@
 import { ChevronDown } from "lucide-react";
 import { motion, type Variants } from "motion/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ELocalStorage } from "src/enums/local-storage.enum";
 import { sendQuestion } from "src/services/home/home.service";
 import { EmptyChat } from "./empty-chat";
-import { InputChatbot } from "./input-chatbot.draw";
+import { InputChatbot } from "./input-chatbot";
 import type { IMessage } from "./interfaces/message.interface";
 import { Messages } from "./messages";
+import type { IContentChatBot } from "./interfaces/content.interface";
 
-export default function ChatBot() {
+interface Props {
+  content: IContentChatBot;
+}
+
+export default function ChatBot({ content }: Props) {
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [input, setInput] = useState<string>("");
@@ -36,6 +41,21 @@ export default function ChatBot() {
       backdropFilter: "none",
       transition: { duration: 0.2 },
     },
+  };
+
+  const handleGlobalEvents = (event: MouseEvent | KeyboardEvent) => {
+    if (event instanceof MouseEvent) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setIsFocus(false);
+      }
+    }
+
+    if (event instanceof KeyboardEvent && event.key === "Escape") {
+      setIsFocus(false);
+    }
   };
 
   const setNewMessage = (message: IMessage) => {
@@ -121,9 +141,18 @@ export default function ChatBot() {
     }).finally(() => setIsLoading(false));
   };
 
+  useEffect(() => {
+    document.addEventListener("mousedown", handleGlobalEvents);
+    document.addEventListener("keydown", handleGlobalEvents);
+
+    return () => {
+      document.removeEventListener("mousedown", handleGlobalEvents);
+      document.removeEventListener("keydown", handleGlobalEvents);
+    };
+  }, []);
+
   return (
-    <div>
-      <InputChatbot isFocus={isFocus} setIsFocus={setIsFocus} />
+    <div ref={containerRef}>
       <motion.div
         className={`absolute overflow-hidden z-0 ${
           isFocus && "after:opacity-0 before:opacity-0"
@@ -132,7 +161,7 @@ export default function ChatBot() {
         animate={isFocus ? "focused" : "unfocused"}
       >
         {isFocus && (
-          <div className="flex flex-col h-full">
+          <div className="flex flex-col h-[calc(100%-4rem)] md:h-[calc(100%-5rem)] mb-[4rem] md:mb-[5rem]">
             <div className="px-6 md:px-16 pt-[20px] md:block">
               <button
                 className="size-[40px] rounded-full border border-white flex items-center justify-center hover:bg-white hover:text-dark cursor-pointer duration-150"
@@ -143,12 +172,26 @@ export default function ChatBot() {
             </div>
 
             {(!messages || messages.length == 0) && (
-              <EmptyChat sendMessage={sendMessage} />
+              <EmptyChat
+                content={content.emptyChat}
+                sendMessage={sendMessage}
+              />
             )}
-            {messages && <Messages messages={messages} />}
+            {messages && messages.length > 1 && (
+              <Messages messages={messages} />
+            )}
           </div>
         )}
       </motion.div>
+      <InputChatbot
+        content={content.input}
+        isFocus={isFocus}
+        setIsFocus={setIsFocus}
+        input={input}
+        isLoading={isLoading}
+        sendMessage={sendMessage}
+        setInput={setInput}
+      />
     </div>
   );
 }
