@@ -98,14 +98,16 @@ export default {
         title: "Take the first step <br/> Let's talk today",
         form: {
           placeholder: "Write here...",
-          name: "Full Name",
+          firstname: "First name",
+          lastname: "Last name",
           email: "Email",
           cellphone: "Phone number",
           termsConditions: "I accept the terms and conditions",
           news: "I want to receive news and promotions",
           button: "Let's talk now",
           validations: {
-            name: "Name is required",
+            firstname: "First name is required",
+            lastname: "Last name is required",
             email: "Enter a valid email",
             cellphone: "Enter a valid phone number",
             termsConditions: "You must accept the terms and conditions",

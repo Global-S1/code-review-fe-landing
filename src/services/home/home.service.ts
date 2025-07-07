@@ -1,6 +1,7 @@
-import { ELocalStorage } from "src/enums/local-storage.enum";
+import { GET_IP, UNIQUE_TOKEN, URL_CHAT_IA } from "src/constants/urls.constant";
 import type { ISendQuestionParam } from "./interfaces/send-question.params";
-import { GET_IP, URL_CHAT_IA } from "src/constants/urls.constant";
+import type { ISendQuestionResponse } from "./interfaces/send-question.response";
+import { LocalStorage } from "src/constants/local-storage.constant";
 
 const getUserIP = async (): Promise<string | null> => {
   try {
@@ -25,12 +26,14 @@ export const sendQuestion = async (
   onMessage: (msg: string, success: boolean) => void
 ) => {
   try {
-    const currentThreadId = localStorage.getItem(ELocalStorage.THREAD_ID);
+    const currentThreadId = localStorage.getItem(LocalStorage.THREAD_ID);
     const userIp = await getUserIP();
+
     const body = {
       ...fields,
-      ...(currentThreadId && { threadId: currentThreadId }),
+      uniqueOrganizationToken: UNIQUE_TOKEN,
     };
+
     const response = await fetch(`${URL_CHAT_IA}/chat/create-chat`, {
       method: "POST",
       headers: {
@@ -40,27 +43,37 @@ export const sendQuestion = async (
       body: JSON.stringify(body),
     });
 
-    const success = response.headers.get("success") === "true" ? true : false;
-    const thredId = response.headers.get("thread-id");
+    const json = (await response.json()) as ISendQuestionResponse;
 
-    if (thredId) {
-      localStorage.setItem(ELocalStorage.THREAD_ID, thredId);
+    if (!json.success || !json.data?.stream) {
+      // Si el servidor respondió con éxito false
+      const errorMsg = json.kindMessage || "Ha ocurrido un error inesperado.";
+      onMessage(errorMsg, false); // ← callback con error
+      return;
     }
 
-    const reader = response.body?.getReader();
-    const decoder = new TextDecoder("utf-8");
+    const simulatedStream = json.data.stream;
+    const threadId = json.data.uniqueOrganizationToken;
 
-    if (!reader) {
-      throw new Error("No readable stream found.");
+    if (threadId) {
+      localStorage.setItem(LocalStorage.THREAD_ID, threadId);
     }
 
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      const chunk = decoder.decode(value, { stream: true });
-      onMessage(chunk, success);
-    }
+    const words = simulatedStream.split(" ");
+    let index = 0;
+
+    const interval = setInterval(() => {
+      if (index >= words.length) {
+        clearInterval(interval);
+        return;
+      }
+
+      const word = words[index];
+      onMessage(word + " ", true); // ← éxito
+      index++;
+    }, 50);
   } catch (error) {
-    console.error("Error while streaming:", error);
+    console.error("Error simulating stream:", error);
+    onMessage("Error de conexión. Intenta nuevamente más tarde.", false); // ← error en fetch
   }
 };

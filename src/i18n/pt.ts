@@ -97,14 +97,16 @@ export default {
         title: "Dê o primeiro passo <br/> Vamos conversar hoje",
         form: {
           placeholder: "Escreva aqui...",
-          name: "Nome e Sobrenome",
+          firstname: "Nome",
+          lastname: "Sobrenome",
           email: "E-mail",
           cellphone: "Telefone",
           termsConditions: "Aceito os termos e condições",
           news: "Desejo receber notícias e promoções",
           button: "Vamos conversar agora",
           validations: {
-            name: "O nome é obrigatório",
+            firstname: "O nome é obrigatório",
+            lastname: "O sobrenome é obrigatório",
             email: "Digite um e-mail válido",
             cellphone: "Digite um número de telefone válido",
             termsConditions: "Você deve aceitar os termos e condições",

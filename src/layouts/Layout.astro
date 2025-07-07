@@ -71,6 +71,17 @@ const jsonLdScript = `<script type="application/ld+json">${JSON.stringify(jsonLd
 
     <!-- JSON/LD Structured Data -->
     <Fragment set:html={jsonLdScript} />
+
+    <!-- GS1 Prompt Engine -->
+    <script type="module">
+      import("gs1-prompt-engine")
+        .then(() => {
+          console.log("GS1 Prompt Engine cargado correctamente");
+        })
+        .catch((error) => {
+          console.error("Error cargando GS1 Prompt Engine:", error);
+        });
+    </script>
   </head>
   <body>
     <StarsEffect />

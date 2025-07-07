@@ -97,14 +97,16 @@ export default {
         title: "Da el primer paso <br/> Hablemos hoy",
         form: {
           placeholder: "Escribe aquí...",
-          name: "Nombre y Apellido",
+          firstname: "Nombre",
+          lastname: "Apellido",
           email: "Correo electrónico",
           cellphone: "Teléfono",
           termsConditions: "Acepto los términos y condiciones",
           news: "Deseo recibir noticias y promociones",
           button: "Hablemos ahora",
           validations: {
-            name: "El nomrbe es obligatorio",
+            firstname: "El nombre es obligatorio",
+            lastname: "El apellido es obligatorio",
             email: "Ingresa un correo válido",
             cellphone: "Ingresa un número de teléfono válido",
             termsConditions: "Debes aceptar los términos y condiciones",

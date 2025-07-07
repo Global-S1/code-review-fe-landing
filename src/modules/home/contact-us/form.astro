@@ -13,30 +13,56 @@ const content = t.pages.home.contactUs.form;
   novalidate
   role="form"
   aria-labelledby="form-title"
-  action="/api/send"
-  method="post"
 >
-  <div class="w-full">
-    <label for="name" class="block mb-2 text-custom-md"> {content.name} </label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      placeholder={content.placeholder}
-      required
-      autocomplete="off"
-      aria-describedby="error-name"
-      aria-invalid="false"
-      class="mt-1 block w-full rounded-xl border border-gray-500 bg-white/5 shadow-sm py-2 px-4 text-xl"
-    />
-    <p
-      id="error-name"
-      class="text-red-500 text-sm mt-1 hidden"
-      role="alert"
-      aria-live="assertive"
-    >
-      {content.validations.name}
-    </p>
+  <div class="flex flex-col md:flex-row gap-x-12 gap-y-6">
+    <div class="grow">
+      <label for="firstname" class="block mb-2 text-custom-md">
+        {content.firstname}
+      </label>
+      <input
+        type="text"
+        id="firstname"
+        name="firstname"
+        placeholder={content.placeholder}
+        required
+        autocomplete="off"
+        aria-describedby="error-firstname"
+        aria-invalid="false"
+        class="mt-1 block w-full rounded-xl border border-gray-500 bg-white/5 shadow-sm py-2 px-4 text-xl"
+      />
+      <p
+        id="error-firstname"
+        class="text-red-500 text-sm mt-1 hidden"
+        role="alert"
+        aria-live="assertive"
+      >
+        {content.validations.firstname}
+      </p>
+    </div>
+    <div class="grow">
+      <label for="lastname" class="block mb-2 text-custom-md">
+        {content.lastname}
+      </label>
+      <input
+        type="text"
+        id="lastname"
+        name="lastname"
+        placeholder={content.placeholder}
+        required
+        autocomplete="off"
+        aria-describedby="error-lastname"
+        aria-invalid="false"
+        class="mt-1 block w-full rounded-xl border border-gray-500 bg-white/5 shadow-sm py-2 px-4 text-xl"
+      />
+      <p
+        id="error-lastname"
+        class="text-red-500 text-sm mt-1 hidden"
+        role="alert"
+        aria-live="assertive"
+      >
+        {content.validations.lastname}
+      </p>
+    </div>
   </div>
 
   <div class="flex flex-col md:flex-row gap-x-12 gap-y-6">
@@ -95,7 +121,6 @@ const content = t.pages.home.contactUs.form;
             name="terms"
             required
             class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-primary checked:bg-primary checked:before:bg-primary hover:before:opacity-10"
-            id="checkbox-1"
           />
           <div
             class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100"
@@ -139,7 +164,6 @@ const content = t.pages.home.contactUs.form;
           name="newsletter"
           required
           class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-primary checked:bg-primary checked:before:bg-primary hover:before:opacity-10"
-          id="checkbox-1"
         />
         <div
           class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100"
@@ -175,77 +199,89 @@ const content = t.pages.home.contactUs.form;
   </div>
 </form>
 
-<script is:inline>
-  const form = document.getElementById("contact-form");
+<script is:inline type="module">
+  import { URL_FORM } from "../../../constants/urls.constant";
 
-  const showError = (id, message) => {
-    const el = document.getElementById(id);
-    const input = document.querySelector(`[aria-describedby="${id}"]`);
-    input.setAttribute("aria-invalid", "true");
-    el.textContent = message;
-    el.classList.remove("hidden");
-  };
+  window.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
 
-  const clearErrors = () => {
-    ["error-name", "error-email", "error-phone", "error-terms"].forEach(
-      (id) => {
+    const showError = (id, message) => {
+      const el = document.getElementById(id);
+      const input = document.querySelector(`[aria-describedby="${id}"]`);
+      if (!el || !input) return;
+      input.setAttribute("aria-invalid", "true");
+      el.textContent = message;
+      el.classList.remove("hidden");
+    };
+
+    const clearErrors = () => {
+      [
+        "error-firstname",
+        "error-lastname",
+        "error-email",
+        "error-phone",
+        "error-terms",
+      ].forEach((id) => {
         const el = document.getElementById(id);
+        if (!el) return;
         el.textContent = "";
         el.classList.add("hidden");
+      });
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      clearErrors();
+
+      const firstname = form.firstname.value.trim();
+      const lastname = form.lastname.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const terms = form.terms.checked;
+      const newsletter = form.newsletter.checked;
+
+      let isValid = true;
+
+      if (!firstname) {
+        showError("error-firstname", "El nombre es obligatorio.");
+        isValid = false;
       }
-    );
-  };
+      if (!lastname) {
+        showError("error-lastname", "El apellido es obligatorio.");
+        isValid = false;
+      }
+      if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        showError("error-email", "Ingresa un correo válido.");
+        isValid = false;
+      }
+      if (!/^[0-9+\s()-]{7,20}$/.test(phone)) {
+        showError("error-phone", "Ingresa un número de teléfono válido.");
+        isValid = false;
+      }
+      if (!terms) {
+        showError("error-terms", "Debes aceptar los términos y condiciones.");
+        isValid = false;
+      }
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    clearErrors();
+      if (!isValid) return;
 
-    const name = form.name.value.trim();
-    const email = form.email.value.trim();
-    const phone = form.phone.value.trim();
-    const terms = form.terms.checked;
-    const newsletter = form.newsletter.checked;
+      const payload = { firstname, lastname, email, phone, newsletter };
 
-    let isValid = true;
+      try {
+        const res = await fetch(`${URL_FORM}/contacts`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
 
-    if (!name) {
-      showError("error-name", "El nombre es obligatorio.");
-      isValid = false;
-    }
-
-    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-      showError("error-email", "Ingresa un correo válido.");
-      isValid = false;
-    }
-
-    const phonePattern = /^[0-9+\s()-]{7,20}$/;
-    if (!phone || !phonePattern.test(phone)) {
-      showError("error-phone", "Ingresa un número de teléfono válido.");
-      isValid = false;
-    }
-
-    if (!terms) {
-      showError("error-terms", "Debes aceptar los términos y condiciones.");
-      isValid = false;
-    }
-
-    if (!isValid) return;
-
-    const payload = { name, email, phone, terms, newsletter };
-
-    console.log(payload);
-
-    // try {
-    //   const res = await fetch("/api/send", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(payload),
-    //   });
-
-    //   const data = await res.json();
-    //   console.log("Enviado correctamente:", data);
-    // } catch (error) {
-    //   console.error("Error al enviar:", error);
-    // }
+        const data = await res.json();
+        console.log("Enviado correctamente:", data);
+        form.reset();
+      } catch (error) {
+        console.error("Error al enviar:", error);
+      }
+    });
   });
 </script>
