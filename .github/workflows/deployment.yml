@@ -29,9 +29,9 @@ jobs:
         id: set-target
         run: |
           if [ "${{ github.ref_name }}" == "${{ env.develop_branch }}" ]; then
-            echo "target=develop.soluciones-argus.com" >> $GITHUB_ENV
+            echo "target=dev-codari.globals.one" >> $GITHUB_ENV
           elif [ "${{ github.ref_name }}" == "${{ env.prod_branch }}" ]; then
-            echo "target=public_html" >> $GITHUB_ENV
+            echo "target=codari.globals.one" >> $GITHUB_ENV
           else
             echo "Error: Unsupported branch ${GITHUB_REF_NAME}" >&2
             exit 1
