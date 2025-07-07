@@ -142,6 +142,20 @@ export default function ChatBot({ content }: Props) {
   };
 
   useEffect(() => {
+    const storedMessages = localStorage.getItem(
+      ELocalStorage.CHAT_BOT_MESSAGES
+    );
+    if (storedMessages) {
+      try {
+        const parsed = JSON.parse(storedMessages) as IMessage[];
+        setMessages(parsed);
+      } catch (err) {
+        console.warn("Error parsing stored chat messages", err);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     document.addEventListener("mousedown", handleGlobalEvents);
     document.addEventListener("keydown", handleGlobalEvents);
 

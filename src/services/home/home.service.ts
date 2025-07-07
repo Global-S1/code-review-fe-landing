@@ -26,7 +26,9 @@ export const sendQuestion = async (
   onMessage: (msg: string, success: boolean) => void
 ) => {
   try {
-    const currentThreadId = localStorage.getItem(LocalStorage.THREAD_ID);
+    const currentUniqueQuestionCode = localStorage.getItem(
+      LocalStorage.UNIQUE_QUESTION_CODE
+    );
     const userIp = await getUserIP();
 
     const body = {
@@ -56,7 +58,7 @@ export const sendQuestion = async (
     const threadId = json.data.uniqueOrganizationToken;
 
     if (threadId) {
-      localStorage.setItem(LocalStorage.THREAD_ID, threadId);
+      localStorage.setItem(LocalStorage.UNIQUE_QUESTION_CODE, threadId);
     }
 
     const words = simulatedStream.split(" ");
