@@ -1,0 +1,49 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - dev
+      - prod
+env:
+  develop_branch: "dev"
+  prod_branch: "prod"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: |
+          npm install
+      - name: Build
+        run: |
+          npm run build
+      - name: Set deployment target
+        id: set-target
+        run: |
+          if [ "${{ github.ref_name }}" == "${{ env.develop_branch }}" ]; then
+            echo "target=develop.soluciones-argus.com" >> $GITHUB_ENV
+          elif [ "${{ github.ref_name }}" == "${{ env.prod_branch }}" ]; then
+            echo "target=public_html" >> $GITHUB_ENV
+          else
+            echo "Error: Unsupported branch ${GITHUB_REF_NAME}" >&2
+            exit 1
+          fi
+      - name: Copy files via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.AG_CPANEL_SERVER_IP }}
+          username: ${{ secrets.AG_CPANEL_SSH_USER }}
+          key: ${{ secrets.AG_CPANEL_SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.AG_CPANEL_SSH_PRIVATE_KEY_PASSPHRASE }}
+          port: 22
+          source: "dist/*"
+          target: ${{ env.target }}
+          strip_components: 1
