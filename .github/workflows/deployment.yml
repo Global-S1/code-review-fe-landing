@@ -39,10 +39,10 @@ jobs:
       - name: Copy files via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.AG_CPANEL_SERVER_IP }}
-          username: ${{ secrets.AG_CPANEL_SSH_USER }}
-          key: ${{ secrets.AG_CPANEL_SSH_PRIVATE_KEY }}
-          passphrase: ${{ secrets.AG_CPANEL_SSH_PRIVATE_KEY_PASSPHRASE }}
+          host: ${{ secrets.GS_CPANEL_SERVER_IP }}
+          username: ${{ secrets.GS_CPANEL_SSH_USER }}
+          key: ${{ secrets.GS_CPANEL_SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GS_CPANEL_SSH_PRIVATE_KEY_PASSPHRASE }}
           port: 22
           source: "dist/*"
           target: ${{ env.target }}
