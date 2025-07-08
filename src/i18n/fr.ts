@@ -106,12 +106,18 @@ export default {
           termsConditions: "J'accepte les termes et conditions",
           news: "Je souhaite recevoir des actualités et des promotions",
           button: "Parlons maintenant",
+          buttonLoading: "Envoi en cours...",
           validations: {
             firstname: "Le prénom est obligatoire",
             lastname: "Le nom de famille est obligatoire",
             email: "Veuillez entrer une adresse e-mail valide",
             cellphone: "Veuillez entrer un numéro de téléphone valide",
             termsConditions: "Vous devez accepter les termes et conditions",
+          },
+          messages: {
+            success: "Votre message a été envoyé avec succès !",
+            error:
+              "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
           },
         },
       },
