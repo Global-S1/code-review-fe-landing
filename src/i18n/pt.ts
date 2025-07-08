@@ -104,12 +104,17 @@ export default {
           termsConditions: "Aceito os termos e condições",
           news: "Desejo receber notícias e promoções",
           button: "Vamos conversar agora",
+          buttonLoading: "Enviando...",
           validations: {
             firstname: "O nome é obrigatório",
             lastname: "O sobrenome é obrigatório",
             email: "Digite um e-mail válido",
             cellphone: "Digite um número de telefone válido",
             termsConditions: "Você deve aceitar os termos e condições",
+          },
+          messages: {
+            success: "Sua mensagem foi enviada com sucesso!",
+            error: "Ocorreu um erro ao enviar. Tente novamente.",
           },
         },
       },

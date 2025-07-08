@@ -51,7 +51,7 @@ export const InputChatbot = ({
       left: "50%",
       translateX: "-50%",
       margin: "auto",
-      maxWidth: "90%",
+      maxWidth: "85%",
       width: "100%",
     },
     unfocused: {
@@ -68,7 +68,7 @@ export const InputChatbot = ({
     <div className="w-full h-12 md:h-20">
       <motion.label
         htmlFor="chat-bot"
-        className={`z-10 border-1 md:border-3 border-primary rounded-xl text-xl bg-white/5 flex cursor-text pr-4 items-center`}
+        className={`z-10 border-1 md:border-3 border-primary rounded-xl text-xl bg-white/5 flex cursor-text pr-0 md:pr-2 items-center`}
         initial={{ opacity: 0 }}
         variants={labelVariants}
         animate={isFocus ? "focused" : "unfocused"}
@@ -90,8 +90,8 @@ export const InputChatbot = ({
         </div>
 
         <button
-          className={`bg-primary h-fit font-bold cursor-pointer ${
-            isLoading ? "p-0 rounded-full" : "px-4 md:px-6 py-2 rounded-2xl"
+          className={`bg-primary h-12 md:h-fit font-bold cursor-pointer ${
+            isLoading ? "p-0 rounded-full" : "px-4 md:px-6 py-2 rounded-[10px]"
           }`}
           onClick={() => {
             setIsFocus(true);
