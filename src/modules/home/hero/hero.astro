@@ -4,6 +4,7 @@ import { translator } from "@i18n/config/translator";
 import Navbar from "./navbar.astro";
 import Waves from "./waves.astro";
 import ChatBot from "./chat-bot/chat-bot";
+import ChatModal from "@components/ChatModal.astro";
 
 const lang = Astro.params.lang as TLanguage;
 const t = translator(lang);
@@ -30,5 +31,8 @@ const content = t.pages.home.hero;
       </p>
     </div>
   </div>
-  <ChatBot content={content.chatbot} client:load />
+  <!-- <ChatBot content={content.chatbot} client:load /> -->
+  <div class="w-[90%] mx-auto">
+    <ChatModal />
+  </div>
 </header>

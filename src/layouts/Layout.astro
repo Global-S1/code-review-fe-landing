@@ -1,5 +1,6 @@
 ---
 import StarsEffect from "@components/background/stars-effect.astro";
+import ChatFloat from "@components/ChatFloat.astro";
 import CursorShadow from "@components/cursor/cursor-shadow.astro";
 import Footer from "@components/footer/Footer.astro";
 import type { TLanguage } from "@i18n/config/interfaces/languaje.interface";
@@ -71,12 +72,17 @@ const jsonLdScript = `<script type="application/ld+json">${JSON.stringify(jsonLd
 
     <!-- JSON/LD Structured Data -->
     <Fragment set:html={jsonLdScript} />
+    <script
+      type="module"
+      src="https://widgets.globals.one/prompt-engine-minify/gs1-prompt-engine.es.js"
+    ></script>
   </head>
   <body>
     <StarsEffect />
     <CursorShadow />
 
     <slot />
+    <ChatFloat />
     <Footer />
   </body>
 </html>
