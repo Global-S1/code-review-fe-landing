@@ -1,4 +1,3 @@
-// src/middleware.ts
 import { defaultLang } from "@i18n/config/languaje";
 import { defineMiddleware } from "astro/middleware";
 
